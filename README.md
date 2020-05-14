@@ -8,7 +8,7 @@ gisaimsr <img src="man/figures/logo.png" width = 180 alt="gisaimsr Logo" align="
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
-status](https://github.com/dbarneche/gisaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/dbarneche/gisaimsr/actions)
+status](https://github.com/aims/gisaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/aims/gisaimsr/actions)
 ![pkgdown](https://github.com/AIMS/gisaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9000-orange.svg)](commits/master)
