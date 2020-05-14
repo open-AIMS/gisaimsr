@@ -1,0 +1,36 @@
+Package: gisaimsr
+Type: Package
+Title: Assortment of GBR GIS Files
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Diego",
+           family = "Barneche",
+           role = c("aut", "cre"),
+           email = "d.barneche@aims.gov.au",
+           comment = c(ORCID = "0000-0002-4568-2362")),
+    person(given = "Murray",
+           family = "Logan",
+           role = c("aut"),
+           email = "m.logan@aims.gov.au"))
+Maintainer: Diego Barneche <d.barneche@aims.gov.au>
+Description: Assortment of GBR GIS Files
+Depends:
+    R (>= 3.6.0)
+Imports:
+  sf,
+	dataaimsr
+Suggests:
+    knitr,
+    rmarkdown,
+    plyr,
+    dplyr,
+    ggplot2
+Remotes: aims/data-platform-r
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+URL: https://aims.github.io/gisaimsr
+BugReports: https://github.com/aims/gisaimsr/issues
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0

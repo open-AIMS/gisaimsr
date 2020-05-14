@@ -1,0 +1,26 @@
+---
+title: "Using gisaimsr data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using gisaimsr data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+To interact locally with this example in [RStudio](https://www.rstudio.com/), click on the source code at the top of this page, then click on `Raw`, and simply copy and paste the code to a new [.Rmd](https://rmarkdown.rstudio.com/) file created in [RStudio](https://www.rstudio.com/).
+
+Let's start by loading some packages that we are going to need down the track:
+
+```{r, message = FALSE}
+library(sf)
+library(dataaimsr)
+library(gisaimsr)
+```
+
+## Exploring the datasets
+
+Placeholder.
+
+## Plotting the datasets
+
+Placeholder.
