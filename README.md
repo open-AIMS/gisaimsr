@@ -25,10 +25,15 @@ focused on the Great Barrier Reef.
 Available Data Sets
 -------------------
 
-Placeholder.
+Datasets are provided by Geoscience Australia (GA) and the Great Barrier
+Reef Marine Park Authority (GBRMPA). All datasets are provided under the
+[Creative Commons Attribution 4.0 International
+Licence](http://creativecommons.org/licenses/by/4.0/legalcode). Please
+see our LICENSE file for full further regarding usage and redistribution
+of these datasets.
 
-Usage of `gisaimsr`
--------------------
+Usage
+-----
 
 Placeholder.
 
@@ -62,10 +67,11 @@ Further Information
 Further information about `gisaimsr`, including
 [vignettes](articles/examples.html) and [help](reference/examples.html)
 files, can be seen on the on-line [project
-page](https://aims.github.io/gisaimsr). Files are Our This R package is
-provided for use under the MIT License
-([MIT](http://opensource.org/licenses/MIT)) by the [Australian Institute
-of Marine Science](https://www.aims.gov.au).
+page](https://aims.github.io/gisaimsr).
+
+`gisaimsr` is provided by the [Australian Institute of Marine
+Science](https://www.aims.gov.au) under the MIT License
+([MIT](http://opensource.org/licenses/MIT)).
 
 AIMS R package logos
 --------------------
