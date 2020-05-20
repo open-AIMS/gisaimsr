@@ -3,7 +3,7 @@
 \docType{data}
 \name{wbodies}
 \alias{wbodies}
-\title{Water Bodies}
+\title{Marine Water Bodies within the Great Barrier Reef}
 \format{
 A \href{https://cran.r-project.org/package=sf}{Simple Features data.frame}
 with 485 rows and 16 variables:
@@ -27,7 +27,14 @@ with 485 rows and 16 variables:
 }
 }
 \description{
-Description
+The GBRMPA delineation as published in the guidelines are: Enclosed
+Coastal (Queensland Water Quality Guidelines); Open Coastal (AIMS
+description of coastal water body relative distance from Research
+Publication no. 89); Midshelf (AIMS description of inner shelf water
+body relative distance from Research Publication no. 89); and Offshsore
+(AIMS description of relative distance from Research Publication
+no. 89) Coral Sea taken from DEWHA definition of current Coral Sea
+Conservation Park.
 }
 \details{
 Data kindly provided by:

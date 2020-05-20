@@ -3,24 +3,71 @@
 \docType{data}
 \name{gbr_zoning}
 \alias{gbr_zoning}
-\title{Name of file}
+\title{Great Barrier Reef Marine Park Zoning}
 \format{
 A \href{https://cran.r-project.org/package=sf}{Simple Features data.frame}
-with XX rows and XX variables:
+with 756 rows and 26 variables:
 \itemize{
-\item 1:
-\item 2:
+\item OBJECTID:
+\item NAME:
+\item IUCN:
+\item NRS_PA:
+\item GAZ_AREA:
+\item GIS_AREA:
+\item RES_NO:
+\item GAZ_DATE:
+\item LATEST_GAZ:
+\item STATE:
+\item AUTHORITY:
+\item ENVIRON:
+\item CODE:
+\item X_COORD:
+\item Y_COORD:
+\item ALT_ZONE:
+\item TYPE:
+\item AREA_TYPE:
+\item LOC_NAME_S:
+\item PERMIT_DES:
+\item GLOBALID:
+\item GROUP_ID:
+\item STD_PERMIT:
+\item Shape_area:
+\item Shape_len:
+\item geometry:
 }
 }
 \description{
-Lines of general description
-Lines of general description
-Lines of general description
+The Great Barrier Reef Marine Park Act 1975 (the Act) provides for the establishment,
+control, care and development of the Great Barrier Reef Marine Park (the Marine Park).
+The Great Barrier Reef Marine Park Authority (the Authority) is responsible for the
+management of the Marine Park. The Great Barrier Reef Marine Park Zoning Plan 2003 is
+the primary planning instrument for the conservation and management of the Marine Park.
+In having regard to the objects set out in subsection 32 (7) of the Act, this Zoning Plan
+takes account of the world heritage values of the Marine Park and the principles of
+ecologically sustainable developments. This Zoning Plan aims, in conjunction with other
+management mechanisms, to protect and conserve the biodiversity of the Great Barrier
+Reef ecosystem within a network of highly protected zones, while providing opportunities
+for the ecologically sustainable use of, and access to, the Great Barrier Reef Region by
+current and future generations. In addition to the protection of representative areas of
+biodiversity, this Zoning Plan also provides for the protection of other areas of high
+conservation value by assigning protective zoning to a range of habitats such as coral reefs,
+sponge beds, seagrass beds and deep water areas, as well as important dugong habitats and
+other special or unique sites. The Marine Park is managed as a multiple use area. This means
+that, while enhancing the conservation of the Marine Park, this Zoning Plan also provides for
+a range of recreational, commercial and research opportunities, and for the continuation of
+traditional activities. This Zoning Plan expressly acknowledges the rights and interests of
+indigenous Australians in the Marine Park by providing for the management of the traditional
+use of marine resources, including traditional hunting, in accordance with Aboriginal and Torres
+Strait Islander custom and tradition. The contributions of scientific research to the management
+and understanding of the Marine Park are also acknowledged in this Zoning Plan, which provides
+for the management of research in the Marine Park, including a system of Scientific Research Zones
+to facilitate research around scientific research stations.(Extract from "Preface A, Introduction;
+Great Barrier Reef Marine Park Zoning Plan 2003).
 }
 \details{
 For full Metadata see the original
-GBRMPA Geoportal (add link)
-page info for the Data X.
+\href{https://tinyurl.com/y7l3ysu6}{GBRMPA Geoportal}
+page info for the Great Barrier Reef Marine Park Zoning.
 
 Data kindly provided by:
 Great Barrier Reef Marine Park Authority

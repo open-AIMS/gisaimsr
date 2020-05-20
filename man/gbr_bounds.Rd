@@ -3,24 +3,36 @@
 \docType{data}
 \name{gbr_bounds}
 \alias{gbr_bounds}
-\title{Name of file}
+\title{Great Barrier Reef Marine Park Boundary}
 \format{
 A \href{https://cran.r-project.org/package=sf}{Simple Features data.frame}
-with XX rows and XX variables:
+with 1 row and 13 variables:
 \itemize{
-\item 1:
-\item 2:
+\item OBJECTID:
+\item GIS_AREA:
+\item sdc_extern:
+\item HECTARES:
+\item UNIQUE_ID:
+\item LOC_TYPE_S:
+\item LOC_NAME_S:
+\item LOC_NAM_L:
+\item SHAPE_Leng:
+\item GlobalID:
+\item Shape_area:
+\item Shape_len:
+\item geometry:
 }
 }
 \description{
-Lines of general description
-Lines of general description
-Lines of general description
+Derived from the Amalgamated Great Barrier Reef (AGBR) Section that
+replaces all previously existing  sections.The AGBR was proclaimed
+under subsection 31 (1) of the Act in 2003 (Gazette No S119) dated 21
+April 2004.
 }
 \details{
 For full Metadata see the original
-GBRMPA Geoportal (add link)
-page info for the Data X.
+\href{https://tinyurl.com/y93w8euw}{GBRMPA Geoportal}
+page info for the Great Barrier Reef Marine Park Boundary.
 
 Data kindly provided by:
 Great Barrier Reef Marine Park Authority

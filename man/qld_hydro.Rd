@@ -3,19 +3,38 @@
 \docType{data}
 \name{qld_hydro}
 \alias{qld_hydro}
-\title{Name of file}
+\title{Hydrology data from GEODATA TOPO 250K Series 3}
 \format{
 A \href{https://cran.r-project.org/package=sf}{Simple Features data.frame}
-with XX rows and XX variables:
+with 496,036 rows and 17 variables:
 \itemize{
-\item 1:
-\item 2:
+\item OBJECTID:
+\item FEATTYPE:
+\item TYPE:
+\item NAME:
+\item PERENNIAL:
+\item HIERARCHY:
+\item FEATREL:
+\item ATTRREL:
+\item PLANACC:
+\item SOURCE:
+\item CREATED:
+\item RETIRED:
+\item PID:
+\item SYMBOL:
+\item TEXTNOTE:
+\item SHAPE_Leng:
+\item geometry:
 }
 }
 \description{
-Lines of general description
-Lines of general description
-Lines of general description
+This is a subset of the original GEODATA TOPO 250K Series 3 dataset
+made available by Geoscience Australia. The original
+GEODATA TOPO 250K Series 3 is a vector representation of the major
+topographic features appearing on the 1:250,000 scale NATMAPs supplied
+in Shape file format and is designed for use in a range of commercial
+GIS software. Data is arranged within specific themes. All data is
+based on the GDA94 coordinate system.
 }
 \details{
 For full Metadata see the original

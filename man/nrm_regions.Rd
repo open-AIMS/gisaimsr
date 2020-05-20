@@ -3,24 +3,39 @@
 \docType{data}
 \name{nrm_regions}
 \alias{nrm_regions}
-\title{Name of file}
+\title{Natural Resource Management Marine Regions Relating to the
+Great Barrier Reef Marine Park (Version 2)}
 \format{
 A \href{https://cran.r-project.org/package=sf}{Simple Features data.frame}
-with XX rows and XX variables:
+with 6 rows and 9 variables:
 \itemize{
-\item 1:
-\item 2:
+\item OBJECTID:
+\item NAME:
+\item NRM_BODY:
+\item COMMENTS:
+\item IQATLAS_QL:
+\item Area_KM2:
+\item Shape_STAr:
+\item Shape_STLe:
+\item geometry:
 }
 }
 \description{
-Lines of general description
-Lines of general description
-Lines of general description
+This dataset was created to provide a maritime extension of the largely
+terrestrial Natural Resource Management Regions. It will be used as a
+planning tool when assessing water quality issues adjacent to the
+Natural Resource Management Regions, within or adjacent to the Great
+Barrier Reef Marine Park.
 }
 \details{
+A marine extension of the Natural Resource Management Regions, covering
+an area from the Queensland mainland at low water, excluding all islands
+and cays.
+
 For full Metadata see the original
-GBRMPA Geoportal (add link)
-page info for the Data X.
+\href{https://tinyurl.com/yb3lgqf4}{eAtlas}
+page info for the NRM areas flowing into the
+Great Barrier Reef Marine Park.
 
 Data kindly provided by:
 Great Barrier Reef Marine Park Authority
