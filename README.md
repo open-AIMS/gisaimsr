@@ -22,20 +22,16 @@ GIS data (in [Simple Features
 data.frame](https://cran.r-project.org/package=sf) format) that are
 focused on the Great Barrier Reef.
 
-Available Data Sets
--------------------
+Available Datasets
+------------------
 
 Datasets are provided by Geoscience Australia (GA) and the Great Barrier
 Reef Marine Park Authority (GBRMPA). All datasets are provided under the
 [Creative Commons Attribution 4.0 International
 Licence](http://creativecommons.org/licenses/by/4.0/legalcode). Please
 see our LICENSE file for full further regarding usage and redistribution
-of these datasets.
-
-Usage
------
-
-Placeholder.
+of these datasets. See this [link](reference/index.html) for more
+information about each dataset.
 
 Installation
 ------------
@@ -61,12 +57,15 @@ Notice that the dependency `dataaimsr` can also be installed using
 
     devtools::install_github("https://github.com/AIMS/data-platform-r")
 
+Usage
+-----
+
+See our on-line [vignettes](articles/examples.html).
+
 Further Information
 -------------------
 
-Further information about `gisaimsr`, including
-[vignettes](articles/examples.html) and [help](reference/examples.html)
-files, can be seen on the on-line [project
+Further information about `gisaimsr` can be seen on the on-line [project
 page](https://aims.github.io/gisaimsr).
 
 `gisaimsr` is provided by the [Australian Institute of Marine
