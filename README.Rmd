@@ -69,7 +69,7 @@ devtools::install_github("https://github.com/AIMS/data-platform-r")
 
 ## Further Information
 
-Further information about `gisaimsr`, including [vignettes](articles/examples.html) and [help](reference/examples.html) files, can be seen on the on-line [project page](https://aims.github.io/gisaimsr).
+Further information about `gisaimsr`, including [vignettes](articles/examples.html) and [help](reference/index.html) files, can be seen on the on-line [project page](https://aims.github.io/gisaimsr).
 
 `gisaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](http://opensource.org/licenses/MIT)).
 
