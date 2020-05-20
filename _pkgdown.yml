@@ -1,3 +1,25 @@
 template:
   params:
     bootswatch: yeti
+
+reference:
+- title: Great Barrier Reef Marine Park Authority data
+  desc: >
+    The Great Barrier Reef Marine Park Authority requests attribution
+    in the following manner: Copyright (c) Great Barrier Reef Marine 
+    Park Authority 2020. These products are released under the [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0/legalcode).
+    Updated data available at http://www.gbrmpa.gov.au/geoportal/.
+  contents:
+  - gbr_bounds
+  - gbr_feat
+  - gbr_zoning
+  - nrm_regions
+  - wbodies
+
+- title: Geoscience Australia data
+  desc: >
+    Geoscience Australia requests attribution
+    in the following manner: Copyright (c) Commonwealth of Australia 
+    (Geoscience Australia) 2020. This product is released under the [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0/legalcode).
+  contents:
+  - qld_hydro
