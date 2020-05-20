@@ -30,7 +30,8 @@ Reef Marine Park Authority (GBRMPA). All datasets are provided under the
 [Creative Commons Attribution 4.0 International
 Licence](http://creativecommons.org/licenses/by/4.0/legalcode). Please
 see our LICENSE file for full further regarding usage and redistribution
-of these datasets. See this [link](reference/index.html) for more
+of these datasets. See this
+[link](https://aims.github.io/gisaimsr/reference/index.html) for more
 information about each dataset.
 
 Installation
@@ -60,7 +61,11 @@ Notice that the dependency `dataaimsr` can also be installed using
 Usage
 -----
 
-See our on-line [vignettes](articles/examples.html).
+See our on-line
+[vignette](https://aims.github.io/gisaimsr/articles/examples.html).
+Alternatively, you can build them locally in R:
+
+    utils::browseVignettes("gisaimsr")
 
 Further Information
 -------------------
