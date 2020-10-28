@@ -23,11 +23,16 @@ version <- gsub('-', '.', version)
 # gisaimsr <img src="man/figures/logo.png" width = 180 alt="gisaimsr Logo" align="right" />
 
 <!-- badges: start -->
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![R build status](https://github.com/aims/gisaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/aims/gisaimsr/actions)
-![pkgdown](https://github.com/AIMS/gisaimsr/workflows/pkgdown/badge.svg)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R build status](https://github.com/open-AIMS/gisaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/gisaimsr/actions)
+![pkgdown](https://github.com/open-AIMS/gisaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT + file LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg)](commits/master)
+[![Ask Us Anything
+!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/open-AIMS/gisaimsr/issues/new)
+![Open Source
+Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
 
 ## Overview 
@@ -36,36 +41,36 @@ version <- gsub('-', '.', version)
 
 ## Available Datasets
 
-Datasets are provided by Geoscience Australia (GA) and the Great Barrier Reef Marine Park Authority (GBRMPA). All datasets are provided under the [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0/legalcode). Please see our LICENSE file for full further regarding usage and redistribution of these datasets. See this [link](https://aims.github.io/gisaimsr/reference/index.html) for more information about each dataset.
+Datasets are provided by Geoscience Australia (GA) and the Great Barrier Reef Marine Park Authority (GBRMPA). All datasets are provided under the [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0/legalcode). Please see our LICENSE file for full further regarding usage and redistribution of these datasets. See this [link](https://open-AIMS.github.io/gisaimsr/reference/index.html) for more information about each dataset.
 
 ## Installation
 
 At this stage `gisaimsr` is not hosted on CRAN R package network.
-An alternative method of installation is to use the R `devtools` package.
+An alternative method of installation is to use the R `remotes` package.
 
-R `devtools` can be installed using the following command:
+R `remotes` can be installed using the following command:
 
 ```{r, eval = FALSE}
-install.packages("devtools")
+install.packages("remotes")
 ```
 
-After `devtools` has been installed `gisaimsr` can be installed directly from GitHub using the following command:
+After `remotes` has been installed `gisaimsr` can be installed directly from GitHub using the following command:
 
 ```{r, eval = FALSE}
-devtools::install_github("https://github.com/AIMS/gisaimsr")
+remotes::install_github("https://github.com/open-AIMS/gisaimsr")
 ```
 
-This command will also install 2 dependencies: [`sf`](https://cran.r-project.org/package=sf) and [`dataaimsr`](https://AIMS.github.io/data-platform-r).
+This command will also install 2 dependencies: [`sf`](https://cran.r-project.org/package=sf) and [`dataaimsr`](https://open-AIMS.github.io/dataaimsr).
 
-Notice that the dependency `dataaimsr` can also be installed using `devtools`:
+Notice that the dependency `dataaimsr` can also be installed using `remotes`:
 
 ```{r, eval = FALSE}
-devtools::install_github("https://github.com/AIMS/data-platform-r")
+remotes::install_github("https://github.com/open-AIMS/dataaimsr")
 ```
 
 ## Usage
 
-See our on-line [vignette](https://aims.github.io/gisaimsr/articles/examples.html).
+See our on-line [vignette](https://open-AIMS.github.io/gisaimsr/articles/examples.html).
 Alternatively, you can build them locally in R:
 
 ```{r, eval = FALSE}
@@ -74,7 +79,7 @@ utils::browseVignettes("gisaimsr")
 
 ## Further Information
 
-Further information about `gisaimsr` can be seen on the on-line [project page](https://aims.github.io/gisaimsr).
+Further information about `gisaimsr` can be seen on the on-line [project page](https://open-AIMS.github.io/gisaimsr).
 
 `gisaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](http://opensource.org/licenses/MIT)).
 
