@@ -23,32 +23,81 @@ version <- gsub('-', '.', version)
 # gisaimsr <img src="man/figures/logo.png" width = 180 alt="gisaimsr Logo" align="right" />
 
 <!-- badges: start -->
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![R build status](https://github.com/open-AIMS/gisaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/gisaimsr/actions)
-![pkgdown](https://github.com/open-AIMS/gisaimsr/workflows/pkgdown/badge.svg)
-[![license](https://img.shields.io/badge/license-MIT + file LICENSE-lightgrey.svg)](https://choosealicense.com/)
-[![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg)](commits/master)
-[![Ask Us Anything
-!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/open-AIMS/gisaimsr/issues/new)
-![Open Source
-Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
+```{r echo = FALSE}
+shds <- "https://img.shields.io/badge/"
+b1 <- paste0(shds, "lifecycle-experimental-orange.svg")
+oa <- "https://github.com/open-AIMS/gisaimsr/"
+b3 <- paste0(oa, "workflows/R-CMD-check/badge.svg")
+b4 <- paste0(oa, "actions")
+b5 <- paste0(oa, "workflows/pkgdown/badge.svg")
+b6 <- paste0(shds, "license-MIT + file LICENSE-lightgrey.svg")
+b7 <- paste0(shds, "Package%20version-`r version`-orange.svg")
+b8 <- paste0(shds, "Ask%20us-anything-1abc9c.svg")
+b9 <- paste0(oa, "issues/new")
+```
+
+[![Lifecycle: experimental][b1]][b2]
+[![R build status][b3]][b4]
+![pkgdown][b5]
+[![license][b6]](https://choosealicense.com/)
+[![packageversion][b7]](commits/master)
+[![Ask Us Anything!][b8]][b9]
+![Open Source Love][b10]
+
+[b1]: `r b1`
+[b2]: https://www.tidyverse.org/lifecycle/#experimental
+[b3]: `r b3`
+[b4]: `r b4`
+[b5]: `r b5`
+[b6]: `r b6`
+[b7]: `r b7`
+[b8]: `r b8`
+[b9]: `r b9`
+[b10]: https://badges.frapsoft.com/os/v2/open-source.svg?v=103
 <!-- badges: end -->
+
+```{r eacho = FALSE}
+# links
+gbio <- "https://open-AIMS.github.io/"
+pg <- paste0(gbio, "gisaimsr/")
+rp <- "https://cran.r-project.org/package="
+cc <- "http://creativecommons.org/licenses/"
+cc1 <- paste0(cc, "by/")
+l1 <- paste0(rp, "sf")
+l2 <- paste0(cc1, "4.0/legalcode")
+l3 <- paste0(pg, "reference/index.html")
+l4 <- paste0(rp, "remotes")
+l5 <- paste0(gbio, "dataaimsr/")
+l6 <- paste0(pg, "articles/examples.html")
+l10 <- paste0(rp, "ggmap")
+l12 <- paste0(cc1, "3.0")
+l14 <- paste0(cc, "by-sa/3.0")
+```
 
 ## Overview 
 
-`gisaimsr` is a data package that provides the user with easy access to GIS data (in [Simple Features data.frame](https://cran.r-project.org/package=sf) format) that are focused on the Great Barrier Reef.
+`gisaimsr` is a data package that provides the user with easy access to GIS 
+data (in [Simple Features data.frame][l1] format) that are focused on the 
+Great Barrier Reef.
 
 ## Available Datasets
 
-Datasets are provided by Geoscience Australia (GA) and the Great Barrier Reef Marine Park Authority (GBRMPA). All datasets are provided under the [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0/legalcode). Please see our LICENSE file for full further regarding usage and redistribution of these datasets. See this [link](https://open-AIMS.github.io/gisaimsr/reference/index.html) for more information about each dataset.
+Datasets are provided by Geoscience Australia (GA) and the Great Barrier Reef 
+Marine Park Authority (GBRMPA). All datasets are provided under the
+[Creative Commons Attribution 4.0 International Licence][l2]. Please see our 
+LICENSE file for full further regarding usage and redistribution of these 
+datasets. See this [link][l3] for more information about each dataset.
+
+[l1]: `r l1`
+[l2]: `r l1`
+[l3]: `r l2`
 
 ## Installation
 
 At this stage `gisaimsr` is not hosted on CRAN R package network.
-An alternative method of installation is to use the R `remotes` package.
+An alternative method of installation is to use the [`remotes`][l4] R package.
 
-R `remotes` can be installed using the following command:
+`remotes` can be installed using the following command:
 
 ```{r, eval = FALSE}
 install.packages("remotes")
@@ -60,7 +109,7 @@ After `remotes` has been installed `gisaimsr` can be installed directly from Git
 remotes::install_github("https://github.com/open-AIMS/gisaimsr")
 ```
 
-This command will also install 2 dependencies: [`sf`](https://cran.r-project.org/package=sf) and [`dataaimsr`](https://open-AIMS.github.io/dataaimsr).
+This command will install the dependencies: [`sf`][l1] and [`dataaimsr`][l5].
 
 Notice that the dependency `dataaimsr` can also be installed using `remotes`:
 
@@ -68,21 +117,40 @@ Notice that the dependency `dataaimsr` can also be installed using `remotes`:
 remotes::install_github("https://github.com/open-AIMS/dataaimsr")
 ```
 
+[l4]: `r l4`
+[l5]: `r l5`
+
 ## Usage
 
-See our on-line [vignette](https://open-AIMS.github.io/gisaimsr/articles/examples.html).
-Alternatively, you can build them locally in R:
+See our on-line [vignette][l6]. Alternatively, you can build them locally in R:
 
 ```{r, eval = FALSE}
 utils::browseVignettes("gisaimsr")
 ```
 
+[l6]: `r l6`
+
 ## Further Information
 
-Further information about `gisaimsr` can be seen on the on-line [project page](https://open-AIMS.github.io/gisaimsr).
+Further information about `gisaimsr` can be seen on the on-line
+[project page][l7].
 
-`gisaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](http://opensource.org/licenses/MIT)).
+`gisaimsr` is provided by the [Australian Institute of Marine Science][l8] 
+under the MIT License ([MIT][l9]).
+
+[l7]: `r pg`
+[l8]: https://www.aims.gov.au
+[l9]: http://opensource.org/licenses/MIT
 
 ## AIMS R package logos
 
-Our R package logos use a watercolour map of Australia, obtained with the [ggmap](https://cran.r-project.org/package=ggmap) R package, which downloads original map tiles provided by [Stamen Design](http://stamen.com), under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0), with data from [OpenStreetMap](http://openstreetmap.org), under [CC BY SA](http://creativecommons.org/licenses/by-sa/3.0).
+Our R package logos use a watercolour map of Australia, obtained with the
+[ggmap][l10] R package, which downloads original map tiles provided by
+[Stamen Design][l11], under [CC BY 3.0][l12], with data from
+[OpenStreetMap][l13], under [CC BY SA][l14].
+
+[l10]: `r l10`
+[l11]: http://stamen.com
+[l12]: `r l12`
+[l13]: http://openstreetmap.org
+[l14]: `r l14`
