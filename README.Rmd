@@ -15,15 +15,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, echo = FALSE}
-version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])
-version <- gsub('-', '.', version)
-```
-
 # gisaimsr <img src="man/figures/logo.png" width = 180 alt="gisaimsr Logo" align="right" />
 
 <!-- badges: start -->
 ```{r echo = FALSE}
+version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])
+version <- gsub('-', '.', version)
 shds <- "https://img.shields.io/badge/"
 b1 <- paste0(shds, "lifecycle-experimental-orange.svg")
 oa <- "https://github.com/open-AIMS/gisaimsr/"
@@ -31,7 +28,7 @@ b3 <- paste0(oa, "workflows/R-CMD-check/badge.svg")
 b4 <- paste0(oa, "actions")
 b5 <- paste0(oa, "workflows/pkgdown/badge.svg")
 b6 <- paste0(shds, "license-MIT + file LICENSE-lightgrey.svg")
-b7 <- paste0(shds, "Package%20version-`r version`-orange.svg")
+b7 <- paste0(shds, "Package%20version-", version, "-orange.svg")
 b8 <- paste0(shds, "Ask%20us-anything-1abc9c.svg")
 b9 <- paste0(oa, "issues/new")
 ```
@@ -56,7 +53,7 @@ b9 <- paste0(oa, "issues/new")
 [b10]: https://badges.frapsoft.com/os/v2/open-source.svg?v=103
 <!-- badges: end -->
 
-```{r eacho = FALSE}
+```{r echo = FALSE}
 # links
 gbio <- "https://open-AIMS.github.io/"
 pg <- paste0(gbio, "gisaimsr/")
@@ -89,8 +86,8 @@ LICENSE file for full further regarding usage and redistribution of these
 datasets. See this [link][l3] for more information about each dataset.
 
 [l1]: `r l1`
-[l2]: `r l1`
-[l3]: `r l2`
+[l2]: `r l2`
+[l3]: `r l3`
 
 ## Installation
 
