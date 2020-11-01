@@ -11,29 +11,13 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://github.com/open-AIMS/gisaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/gisaimsr/actions)
 ![pkgdown](https://github.com/open-AIMS/gisaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
-[![packageversion](https://img.shields.io/badge/Package%20version-%60r%20version%60-orange.svg)](commits/master)
+[![packageversion](https://img.shields.io/badge/Package%20version-0.0.0.9000-orange.svg)](commits/master)
 [![Ask Us
 Anything!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/open-AIMS/gisaimsr/issues/new)
 ![Open Source
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 
 <!-- badges: end -->
-
-    # links
-    gbio <- "https://open-AIMS.github.io/"
-    pg <- paste0(gbio, "gisaimsr/")
-    rp <- "https://cran.r-project.org/package="
-    cc <- "http://creativecommons.org/licenses/"
-    cc1 <- paste0(cc, "by/")
-    l1 <- paste0(rp, "sf")
-    l2 <- paste0(cc1, "4.0/legalcode")
-    l3 <- paste0(pg, "reference/index.html")
-    l4 <- paste0(rp, "remotes")
-    l5 <- paste0(gbio, "dataaimsr/")
-    l6 <- paste0(pg, "articles/examples.html")
-    l10 <- paste0(rp, "ggmap")
-    l12 <- paste0(cc1, "3.0")
-    l14 <- paste0(cc, "by-sa/3.0")
 
 Overview
 --------
@@ -49,11 +33,11 @@ Available Datasets
 Datasets are provided by Geoscience Australia (GA) and the Great Barrier
 Reef Marine Park Authority (GBRMPA). All datasets are provided under the
 [Creative Commons Attribution 4.0 International
-Licence](https://cran.r-project.org/package=sf). Please see our LICENSE
-file for full further regarding usage and redistribution of these
-datasets. See this
-[link](http://creativecommons.org/licenses/by/4.0/legalcode) for more
-information about each dataset.
+Licence](http://creativecommons.org/licenses/by/4.0/legalcode). Please
+see our LICENSE file for full further regarding usage and redistribution
+of these datasets. See this
+[link](https://open-AIMS.github.io/gisaimsr/reference/index.html) for
+more information about each dataset.
 
 Installation
 ------------
