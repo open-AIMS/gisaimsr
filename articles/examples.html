@@ -91,21 +91,249 @@
 
     
     
-<p>To interact locally with this example in <a href="https://www.rstudio.com/">RStudio</a>, click on the source code at the top of this page, then click on <code>Raw</code>, and simply copy and paste the code to a new <a href="https://rmarkdown.rstudio.com/">.Rmd</a> file created in <a href="https://www.rstudio.com/">RStudio</a>.</p>
-<p>Let’s start by loading some packages that we are going to need down the track:</p>
+<div id="introduction" class="section level2">
+<h2 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h2>
+<p><code>gisaimsr</code> was developed to provide scientists with easy access to some key spatial datasets associated with key marine ecosystems in Australia where most of the work conducted by the Australian Institute of Marine Science takes place. If you would like to see more spatial datasets made available through this package, please submit a request via our <a href="https://www.github.com/open-AIMS/gisaimsr/issues/new">issues</a> page on GitHub.</p>
+<p>Different from most R packages, this package should be viewed as a data package only. Therefore, the purpose of this vignette is to teach how one can: (<em>i</em>) query which spatial datasets are available and how to access them, and (<em>ii</em>) provide illustrated examples of data exploration and plots.</p>
+<p>Our datasets were originally provided by Geoscience Australia (GA) and the Great Barrier Reef Marine Park Authority (GBRMPA). Please see our <a href="https://open-AIMS.github.io/gisaimsr/index.html">README</a> page for full information regarding data and package licenses.</p>
+</div>
+<div id="installing-the-package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installing-the-package" class="anchor"></a>Installing the package</h2>
+<p>Before moving forward on this page, please refer to our <a href="https://open-AIMS.github.io/gisaimsr/index.html">README</a> page for full information regarding package installation and dependencies.</p>
+</div>
+<div id="the-datasets" class="section level2">
+<h2 class="hasAnchor">
+<a href="#the-datasets" class="anchor"></a>The datasets</h2>
+<p>Our datasets are in <a href="https://cran.r-project.org/package=sf">simple features data.frame</a> format, which is being actively developed and soon is likely to be the main go-to spatial object in R. There is no point in repeating abundant information; if you want an overview of spatial data objects in R, and simple features in particular, please see the <a href="#further-readings">further readings</a> section at the end of this vignette.</p>
+<p>Currently all of our spatial datasets are from Queensland because of AIMS historical focus on the Great Barrier Reef. If you would like to access spatial datasets from other parts of the country (e.g. tropical Western Australia and Northern Territory), please submit a request via our <a href="https://www.github.com/open-AIMS/gisaimsr/issues/new">issues</a> page on GitHub. A list of datasets and their associated full documentation can be found on our <a href="garf">reference</a> page, but briefly we provide datasets on:</p>
+<ul>
+<li><p>Great Barrier Reef Marine Park Boundary (object <code>gbr_feat</code>)</p></li>
+<li><p>Great Barrier Reef Features (object <code>gbr_bounds</code>)</p></li>
+<li><p>Great Barrier Reef Marine Park Zoning (object <code>gbr_zoning</code>)</p></li>
+<li><p>Natural Resource Management Marine Regions Relating to the Great Barrier Reef Marine Park (object <code>nrm_regions</code>)</p></li>
+<li><p>Marine Water Bodies within the Great Barrier Reef (object <code>wbodies</code>)</p></li>
+<li><p>Queensland Hydrology data (object <code>qld_hydro</code>)</p></li>
+</ul>
+<p>All datasets are standardised to the Geocentric Datum of Australia (<a href="http://www.geoproject.com.au/gda.faq.html">GDA94</a>). However, this vignette will guide you through some examples about changing the projection of the datasets if needed.</p>
+</div>
+<div id="examples" class="section level2">
+<h2 class="hasAnchor">
+<a href="#examples" class="anchor"></a>Examples</h2>
+<p>Before we explore and plot some data, let’s first load some packages that we are going to need further down the track; most of them can be downloaded using the <code>install.packages</code> function in R. <a href="https://open-AIMS.github.io/gisaimsr/"><code>gisaimsr</code></a> and <a href="https://open-AIMS.github.io/dataaimsr/"><code>dataaimsr</code></a> can be installed using the <a href="https://cran.r-project.org/package=remotes"><code>remotes</code></a> package (see more on our <a href="https://open-AIMS.github.io/gisaimsr/index.html">README</a> page).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/raster">raster</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial">ggspatial</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/gisaimsr">gisaimsr</a></span><span class="op">)</span></pre></div>
-<div id="exploring-the-datasets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#exploring-the-datasets" class="anchor"></a>Exploring the datasets</h2>
-<p>Placeholder.</p>
+<p>We recommend always loading the <code>sf</code> package whenever loading <code>gisaimsr</code>—this will facilitate the summary view of the datasets. We look at what the <code>gbr_feat</code> object comprises:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="va">gbr_feat</span></pre></div>
+<pre><code>## Simple feature collection with 5363 features and 20 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 138.0012 ymin: -29.17855 xmax: 153.5516 ymax: -10.34855
+## geographic CRS: GDA94
+## First 10 features:
+##    OBJECTID SORT_GBR_I LABEL_ID SUB_NO           CODE   UNIQUE_ID FEATURE_C
+## 1      2282      20039   20-039    100 20-039-100-106 20039100106       106
+## 2      1408      15009   15-009    100 15-009-100-104 15009100104       104
+## 3      1721      21569   21-569    100 21-569-100-104 21569100104       104
+## 4      4278      19239   19-239    100 19-239-100-104 19239100104       104
+## 5      1118      11292   11-292    100 11-292-100-104 11292100104       104
+## 6      1951      20073   20-073    100 20-073-100-102 20073100102       102
+## 7      4005      21441   21-441    100 21-441-100-104 21441100104       104
+## 8       782      99517   99-517    100 99-517-100-104 99517100104       104
+## 9      4505      20145   20-145    100 20-145-100-104 20145100104       104
+## 10      251      14077  14-077b    102 14-077-102-104 14077102104       104
+##              GBR_NAME FEAT_NAME           QLD_NAME  X_LABEL GBR_ID
+## 1           Hill Rock      Rock          Hill Rock  20-039S  20039
+## 2      Forrester Reef      Reef     Forrester Reef  15-009S  15009
+## 3            U/N Reef      Reef           U/N Reef  21-569S  21569
+## 4            U/N Reef      Reef           U/N Reef 19-1020S  19239
+## 5            U/N Reef      Reef               &lt;NA&gt; 11-1034S  11292
+## 6  Wirrainbeia Island    Island Wirrainbeia Island  20-073S  20073
+## 7            U/N Reef      Reef           U/N Reef  21-441S  21441
+## 8            U/N Reef      Reef           U/N Reef 10-1135S  99517
+## 9        Packer Reefs      Reef       Packer Reefs  20-145S  20145
+## 10           U/N Reef      Reef           U/N Reef  14-077B 14077B
+##                     LOC_NAME_S                  LOC_NAME_L  X_COORD   Y_COORD
+## 1           Hill Rock (20-039)          Hill Rock (20-039) 148.9064 -20.25866
+## 2      Forrester Reef (15-009)     Forrester Reef (15-009) 145.4961 -15.16673
+## 3            U/N Reef (21-569)           U/N Reef (21-569) 152.5358 -21.84827
+## 4            U/N Reef (19-239)           U/N Reef (19-239) 149.5259 -19.39143
+## 5            U/N Reef (11-292)           U/N Reef (11-292) 143.9887 -11.34939
+## 6  Wirrainbeia Island (20-073) Wirrainbeia Island (20-073) 149.1422 -20.23374
+## 7            U/N Reef (21-441)           U/N Reef (21-441) 151.7746 -21.52741
+## 8            U/N Reef (99-517)           U/N Reef (99-517) 142.3817 -10.70295
+## 9        Packer Reefs (20-145)       Packer Reefs (20-145) 150.2041 -20.47503
+## 10          U/N Reef (14-077b)          U/N Reef (14-077b) 145.2351 -14.32905
+##       Area_HA                               GlobalID  Shape_STAr Shape_STLe
+## 1     0.00000 {6CFEA6F6-33A2-444A-835B-0003206EBA49}    14139.68   471.0188
+## 2  1439.25061 {52B4FEDB-0481-4138-8CC5-000EB8B50614} 15542327.77 15429.7742
+## 3   286.62817 {90B3A494-343E-42CA-A598-001C3C7FA050}  3318976.46  7885.3901
+## 4  1010.43347 {2AD6E5F7-294A-4FC2-B6CE-00245020560A} 11405155.41 16093.9274
+## 5    12.76182 {7268EEBC-871C-41E6-8C00-005264F22EA5}   133334.98  1408.1955
+## 6     0.00000 {7FBD05AC-4B0F-47C2-8742-00592B6D0BE8}    44034.21   973.7373
+## 7   817.89062 {7EDEAEF9-52AF-43D8-9DE0-005BBD5A7782}  9448387.25 13169.4936
+## 8    83.06730 {6609D9D3-B88F-4FFD-A561-008972358524}   860979.31  5899.5177
+## 9   279.93286 {94FE9403-4ECE-4778-B0FB-00A75CA5BBFB}  3199563.01  7209.1005
+## 10   47.87914 {C0C11C29-3B5A-4125-B066-00A886B5D194}   512998.47  2768.0494
+##                          geometry
+## 1  MULTIPOLYGON (((148.9069 -2...
+## 2  MULTIPOLYGON (((145.5141 -1...
+## 3  MULTIPOLYGON (((152.5456 -2...
+## 4  MULTIPOLYGON (((149.507 -19...
+## 5  MULTIPOLYGON (((143.9891 -1...
+## 6  MULTIPOLYGON (((149.1426 -2...
+## 7  MULTIPOLYGON (((151.7886 -2...
+## 8  MULTIPOLYGON (((142.3876 -1...
+## 9  MULTIPOLYGON (((150.2114 -2...
+## 10 MULTIPOLYGON (((145.2375 -1...</code></pre>
+<p>A two-part summary was printed to the screen. The top part summarises the features (rows) X fields (columns) of the spatial dataset, its geographical boundaries and projection. The second part displays the first 10 rows of the dataset. These fields contain all of the original info on the dataset, and the last column <code>geometry</code> contains the actual spatial information of that particular feature, e.g.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="va">gbr_feat</span><span class="op">$</span><span class="va">geometry</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></pre></div>
+<pre><code>## Geometry set for 1 feature 
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 148.9059 ymin: -20.25925 xmax: 148.907 ymax: -20.25791
+## geographic CRS: GDA94</code></pre>
+<pre><code>## MULTIPOLYGON (((148.9069 -20.2591, 148.9069 -20...</code></pre>
+<p>The nice thing about this type of format is that it can be subset in whichever way we want, as we would do for a regular data.frame. For instance, we can isolate the first occurrence of the dataset</p>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="va">gbr_feat</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></pre></div>
+<pre><code>## Simple feature collection with 1 feature and 20 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 148.9059 ymin: -20.25925 xmax: 148.907 ymax: -20.25791
+## geographic CRS: GDA94
+##   OBJECTID SORT_GBR_I LABEL_ID SUB_NO           CODE   UNIQUE_ID FEATURE_C
+## 1     2282      20039   20-039    100 20-039-100-106 20039100106       106
+##    GBR_NAME FEAT_NAME  QLD_NAME X_LABEL GBR_ID         LOC_NAME_S
+## 1 Hill Rock      Rock Hill Rock 20-039S  20039 Hill Rock (20-039)
+##           LOC_NAME_L  X_COORD   Y_COORD Area_HA
+## 1 Hill Rock (20-039) 148.9064 -20.25866       0
+##                                 GlobalID Shape_STAr Shape_STLe
+## 1 {6CFEA6F6-33A2-444A-835B-0003206EBA49}   14139.68   471.0188
+##                         geometry
+## 1 MULTIPOLYGON (((148.9069 -2...</code></pre>
+<p>In a similar fashion, we can subset the data based on a particular field value</p>
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">GBR_NAME</span> <span class="op">==</span> <span class="st">"Forrester Reef"</span><span class="op">)</span></pre></div>
+<pre><code>## Simple feature collection with 1 feature and 20 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 145.4744 ymin: -15.18606 xmax: 145.5166 ymax: -15.14692
+## geographic CRS: GDA94
+##   OBJECTID SORT_GBR_I LABEL_ID SUB_NO           CODE   UNIQUE_ID FEATURE_C
+## 1     1408      15009   15-009    100 15-009-100-104 15009100104       104
+##         GBR_NAME FEAT_NAME       QLD_NAME X_LABEL GBR_ID
+## 1 Forrester Reef      Reef Forrester Reef 15-009S  15009
+##                LOC_NAME_S              LOC_NAME_L  X_COORD   Y_COORD  Area_HA
+## 1 Forrester Reef (15-009) Forrester Reef (15-009) 145.4961 -15.16673 1439.251
+##                                 GlobalID Shape_STAr Shape_STLe
+## 1 {52B4FEDB-0481-4138-8CC5-000EB8B50614}   15542328   15429.77
+##                         geometry
+## 1 MULTIPOLYGON (((145.5141 -1...</code></pre>
+<p>which is extremely handy when we want to plot particular sections of the dataset</p>
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
+  <span class="va">data.frame</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/select.html">select</a></span><span class="op">(</span><span class="va">FEAT_NAME</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">distinct</span><span class="op">(</span><span class="op">)</span></pre></div>
+<pre><code>##   FEAT_NAME
+## 1      Rock
+## 2      Reef
+## 3    Island
+## 4       Cay
+## 5      Sand
+## 6  Mainland</code></pre>
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">FEAT_NAME</span> <span class="op">!=</span> <span class="st">"Mainland"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-8-1.png" width="480"></p>
+<p>As we can see the default of <code>geom_sf</code> is not necessarily nice. We can play with some of the arguments in the function to make the plots more pleasing, including colouring the land based on a particular field (i.e. column), and adding some ocean colour to the plot’s background</p>
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">FEAT_NAME</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+       y <span class="op">=</span> <span class="st">"Latitude"</span>,
+       title <span class="op">=</span> <span class="st">"The Great Barrier Reef"</span><span class="op">)</span></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-9-1.png" width="480"></p>
+<p>We can also overlay different objects from <code>gisaimsr</code>, clip the map to a particular area, and add points to our map</p>
+<div class="sourceCode" id="cb15"><pre class="downlit">
+<span class="va">coords</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">23</span>, <span class="op">-</span><span class="fl">24</span><span class="op">)</span>, lon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">150</span>, <span class="fl">151</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_zoning</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">TYPE</span><span class="op">)</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span>, lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html">annotation_scale</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, width_hint <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html">annotation_north_arrow</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, which_north <span class="op">=</span> <span class="st">"true"</span>,
+      pad_x <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0.25</span>, <span class="st">"in"</span><span class="op">)</span>, pad_y <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0.4</span>, <span class="st">"in"</span><span class="op">)</span>,
+      style <span class="op">=</span> <span class="va">north_arrow_fancy_orienteering</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">148</span>, <span class="fl">154.5</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">25</span>, <span class="op">-</span><span class="fl">18</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">coords</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
+                                        colour <span class="op">=</span> <span class="st">"lightblue"</span>,
+                                        size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+       y <span class="op">=</span> <span class="st">"Latitude"</span>,
+       title <span class="op">=</span> <span class="st">"Southern Great Barrier Reef"</span><span class="op">)</span></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
+<p>The functions <code>annotation_scale</code> and <code>annotation_north_arrow</code> from the <a href="https://cran.r-project.org/package=ggspatial"><code>ggspatial</code></a> package allow the addition of scale bars and orientation. <code>coord_sf</code> from <a href="https://cran.r-project.org/package=ggplot2"><code>ggplot2</code></a> allows for the delimitation of the plot area. It also allows one to change the projection of the map by changing the Coordinate Reference System (CRS)</p>
+<div class="sourceCode" id="cb16"><pre class="downlit">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="st">"+proj=moll"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
+                                        colour <span class="op">=</span> <span class="st">"lightblue"</span>,
+                                        size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+       y <span class="op">=</span> <span class="st">"Latitude"</span>,
+       title <span class="op">=</span> <span class="st">"The Great Barrier Reef"</span>,
+       subtitle <span class="op">=</span> <span class="st">"World Mollweide projection"</span><span class="op">)</span></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-11-1.png" width="480"></p>
+<p>The argument <code>crs</code> in <code>coord_sf</code> could have been an EPSG (European Petroleum Survey Group) code (e.g. <code>crs = sf::st_crs(7844)</code> for the new <a href="http://www.ga.gov.au/scientific-topics/positioning-navigation/geodesy/datums-projections/gda2020">GDA2020</a>). One can search for different projections and codes <a href="https://spatialreference.org/ref/epsg/?page=1">here</a> and <a href="https://epsg.io/">here</a>.</p>
+<p>Finally, you can also crop a particular dataset for a user-defined region before plotting the object. This requires some code to first create a bounding box on equivalent CRS to the target dataset to be cropped, and then some wrangling to fix any original invalid geometries from the original dataset:</p>
+<div class="sourceCode" id="cb17"><pre class="downlit">
+<span class="co"># first define box</span>
+<span class="va">cropbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/extent.html">extent</a></span><span class="op">(</span><span class="fl">140</span>, <span class="fl">146</span>, <span class="op">-</span><span class="fl">15</span>, <span class="op">-</span><span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/coerce-methods.html">as</a></span><span class="op">(</span><span class="st">"SpatialPolygons"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="va">st_as_sf</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_set_crs</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">gbr_feat</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
+  <span class="va">st_make_valid</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_binary_ops.html">st_intersection</a></span><span class="op">(</span><span class="va">cropbox</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
+                                          colour <span class="op">=</span> <span class="st">"lightblue"</span>,
+                                          size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+         y <span class="op">=</span> <span class="st">"Latitude"</span>,
+         title <span class="op">=</span> <span class="st">"Northern Great Barrier Reef"</span><span class="op">)</span></pre></div>
+<p><img src="examples_files/figure-html/unnamed-chunk-12-1.png" width="480"></p>
 </div>
-<div id="plotting-the-datasets" class="section level2">
+<div id="further-readings" class="section level2">
 <h2 class="hasAnchor">
-<a href="#plotting-the-datasets" class="anchor"></a>Plotting the datasets</h2>
-<p>Placeholder.</p>
+<a href="#further-readings" class="anchor"></a>Further readings</h2>
+<ul>
+<li><p>Spatial data in R <a href="https://www.jessesadler.com/post/gis-with-r-intro/" class="uri">https://www.jessesadler.com/post/gis-with-r-intro/</a> <a href="https://www.flutterbys.com.au/stats/tut/tut5.4.html" class="uri">https://www.flutterbys.com.au/stats/tut/tut5.4.html</a></p></li>
+<li><p>Simple features data.frame <a href="https://r-spatial.github.io/sf/articles/sf1.html" class="uri">https://r-spatial.github.io/sf/articles/sf1.html</a> <a href="https://www.jessesadler.com/post/simple-feature-objects/" class="uri">https://www.jessesadler.com/post/simple-feature-objects/</a> <a href="https://github.com/rstudio/cheatsheets/raw/master/sf.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/sf.pdf</a></p></li>
+<li><p>Plotting spatial data in R <a href="https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html" class="uri">https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html</a> <a href="https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html" class="uri">https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html</a></p></li>
+<li><p>About Coordinate Reference Systems <a href="https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf" class="uri">https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf</a></p></li>
+</ul>
 </div>
   </div>
 
