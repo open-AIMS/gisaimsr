@@ -1,7 +1,7 @@
 Package: gisaimsr
 Type: Package
 Title: Assortment of GBR GIS Files
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     c(person(given = "Diego",
            family = "Barneche",
@@ -25,7 +25,8 @@ Suggests:
     plyr,
     tidyverse,
     ggspatial,
-    raster
+    raster,
+    ggrepel
 Remotes: open-aims/dataaimsr
 License: MIT + file LICENSE
 Encoding: UTF-8
