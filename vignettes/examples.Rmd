@@ -7,20 +7,267 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-To interact locally with this example in [RStudio](https://www.rstudio.com/), click on the source code at the top of this page, then click on `Raw`, and simply copy and paste the code to a new [.Rmd](https://rmarkdown.rstudio.com/) file created in [RStudio](https://www.rstudio.com/).
+```{r echo = FALSE}
+# links
+oagb <- "https://www.github.com/open-AIMS/"
+oaio <- "https://open-AIMS.github.io/"
+gagb <- paste0(oagb, "gisaimsr/")
+gais <- paste0(gagb, "issues/new")
+gaio <- paste0(oaio, "gisaimsr/")
+gard <- paste0(gaio, "index.html")
+garf <- paste0(gaio, "reference/index.html")
 
-Let's start by loading some packages that we are going to need down the track:
+dagb <- paste0(oagb, "dataaimsr/")
+daio <- paste0(oaio, "dataaimsr/")
+
+cranpkgs <- "https://cran.r-project.org/package="
+sf <- paste0(cranpkgs, "sf")
+rt <- paste0(cranpkgs, "remotes")
+gs <- paste0(cranpkgs, "ggspatial")
+gp <- paste0(cranpkgs, "ggplot2")
+```
+
+## Introduction
+
+`gisaimsr` was developed to provide scientists with easy access to some key
+spatial datasets associated with key marine ecosystems in Australia where most
+of the work conducted by the Australian Institute of Marine Science takes 
+place. If you would like to see more spatial datasets made available through 
+this package, please submit a request via our [issues][gais] page on GitHub.
+
+Different from most R packages, this package should be viewed as a data 
+package only. Therefore, the purpose of this vignette is to teach how one can: 
+(*i*) query which spatial datasets are available and how to access them, and
+(*ii*) provide illustrated examples of data exploration and plots.
+
+Our datasets were originally provided by Geoscience Australia (GA) and the 
+Great Barrier Reef Marine Park Authority (GBRMPA). Please see our 
+[README][gard] page for full information regarding data and package licenses.
+
+[gard]: `r gard`
+[gais]: `r gais`
+
+## Installing the package
+
+Before moving forward on this page, please refer to our [README][gard] page 
+for full information regarding package installation and dependencies.
+
+## The datasets
+
+Our datasets are in [simple features data.frame][sf] format, which is being
+actively developed and soon is likely to be the main go-to spatial object
+in R. There is no point in repeating abundant information; if you want an
+overview of spatial data objects in R, and simple features in particular,
+please see the [further readings](#further-readings) section at the end of 
+this vignette.
+
+Currently all of our spatial datasets are from Queensland because of AIMS 
+historical focus on the Great Barrier Reef. If you would like to access 
+spatial datasets from other parts of the country (e.g. tropical Western 
+Australia and Northern Territory), please submit a request via our
+[issues][gais] page on GitHub. A list of datasets and their associated full 
+documentation can be found on our [reference](garf) page, but briefly we 
+provide datasets on:
+
+* Great Barrier Reef Marine Park Boundary (object `gbr_feat`)
+
+* Great Barrier Reef Features (object `gbr_bounds`)
+
+* Great Barrier Reef Marine Park Zoning (object `gbr_zoning`)
+
+* Natural Resource Management Marine Regions Relating to the Great Barrier Reef Marine Park (object `nrm_regions`)
+
+* Marine Water Bodies within the Great Barrier Reef (object `wbodies`)
+
+* Queensland Hydrology data (object `qld_hydro`)
+
+All datasets are standardised to the Geocentric Datum of Australia
+([GDA94][gda]). However, this vignette will guide you through some examples 
+about changing the projection of the datasets if needed.
+
+[sf]: `r sf`
+[garf]: `r garf`
+[gda]: http://www.geoproject.com.au/gda.faq.html
+
+## Examples
+
+Before we explore and plot some data, let's first load some packages that we 
+are going to need further down the track; most of them can be downloaded using 
+the `install.packages` function in R. [`gisaimsr`][gaio] and
+[`dataaimsr`][daio] can be installed using the [`remotes`][rt] package
+(see more on our [README][gard] page).
 
 ```{r, message = FALSE}
+library(raster)
+library(tidyverse)
+library(ggspatial)
 library(sf)
 library(dataaimsr)
 library(gisaimsr)
 ```
 
-## Exploring the datasets
+We recommend always loading the `sf` package whenever loading `gisaimsr`---this
+will facilitate the summary view of the datasets. We look at what the 
+`gbr_feat` object comprises:
 
-Placeholder.
+```{r}
+gbr_feat
+```
 
-## Plotting the datasets
+A two-part summary was printed to the screen. The top part summarises the 
+features (rows) X fields (columns) of the spatial dataset, its geographical 
+boundaries and projection. The second part displays the first 10 rows of the 
+dataset. These fields contain all of the original info on the dataset, and the 
+last column `geometry` contains the actual spatial information of that 
+particular feature, e.g.
 
-Placeholder.
+```{r}
+gbr_feat$geometry[1, ]
+```
+
+The nice thing about this type of format is that it can be subset in whichever 
+way we want, as we would do for a regular data.frame. For instance, we can 
+isolate the first occurrence of the dataset
+
+```{r}
+gbr_feat[1, ]
+```
+
+In a similar fashion, we can subset the data based on a particular field value
+
+```{r}
+gbr_feat %>%
+  filter(GBR_NAME == "Forrester Reef")
+```
+
+which is extremely handy when we want to plot particular sections of the 
+dataset
+
+```{r}
+gbr_feat %>%
+  data.frame %>%
+  select(FEAT_NAME) %>%
+  distinct()
+```
+
+```{r, fig.width = 5, fig.height = 5}
+gbr_feat %>%
+  dplyr::filter(FEAT_NAME != "Mainland") %>%
+  ggplot(data = .) +
+    geom_sf() +
+    theme_classic()
+```
+
+As we can see the default of `geom_sf` is not necessarily nice. We can play
+with some of the arguments in the function to make the plots more pleasing, 
+including colouring the land based on a particular field (i.e. column), and
+adding some ocean colour to the plot's background
+
+```{r, fig.width = 5, fig.height = 5}
+ggplot(data = gbr_feat) +
+  geom_sf(mapping = aes(fill = FEAT_NAME), lwd = 0.01) +
+  theme_classic() +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "The Great Barrier Reef")
+```
+
+We can also overlay different objects from `gisaimsr`, clip the map to a 
+particular area, and add points to our map
+
+```{r, fig.width = 7, fig.height = 5}
+coords <- data.frame(lat = c(-23, -24), lon = c(150, 151))
+ggplot() +
+  geom_sf(data = gbr_zoning, mapping = aes(fill = TYPE), colour = NA) +
+  geom_sf(data = gbr_feat, lwd = 0.01, fill = "burlywood2") +
+  annotation_scale(location = "bl", width_hint = 0.5) +
+  annotation_north_arrow(location = "bl", which_north = "true",
+      pad_x = unit(0.25, "in"), pad_y = unit(0.4, "in"),
+      style = north_arrow_fancy_orienteering) +
+  coord_sf(xlim = c(148, 154.5), ylim = c(-25, -18)) +
+  geom_point(data = coords, mapping = aes(x = lon, y = lat)) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                        colour = "lightblue",
+                                        size = 0.5, linetype = "solid")) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "Southern Great Barrier Reef")
+```
+
+The functions `annotation_scale` and `annotation_north_arrow` from the 
+[`ggspatial`][gs] package allow the addition of scale bars and orientation.
+`coord_sf` from [`ggplot2`][gp] allows for the delimitation of the plot area.
+It also allows one to change the projection of the map by changing the 
+Coordinate Reference System (CRS)
+
+```{r, fig.width = 5, fig.height = 5}
+ggplot(data = gbr_feat) +
+  geom_sf(lwd = 0.01, fill = "burlywood2") +
+  theme_classic() +
+  coord_sf(crs = "+proj=moll") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                        colour = "lightblue",
+                                        size = 0.5, linetype = "solid")) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "The Great Barrier Reef",
+       subtitle = "World Mollweide projection")
+```
+
+The argument `crs` in `coord_sf` could have been an EPSG (European Petroleum 
+Survey Group) code (e.g. `crs = sf::st_crs(7844)` for the new
+[GDA2020][gda2020]). One can search for different projections and codes
+[here](https://spatialreference.org/ref/epsg/?page=1) and
+[here](https://epsg.io/).
+
+Finally, you can also crop a particular dataset for a user-defined region
+before plotting the object. This requires some code to first create a bounding
+box on equivalent CRS to the target dataset to be cropped, and then some
+wrangling to fix any original invalid geometries from the original dataset:
+
+```{r, fig.width = 5, fig.height = 5, warning = FALSE, message = FALSE}
+# first define box
+cropbox <- extent(140, 146, -15, -10) %>%
+  as("SpatialPolygons") %>%
+  st_as_sf %>%
+  st_set_crs(st_crs(gbr_feat))
+
+gbr_feat %>%
+  st_make_valid %>%
+  st_intersection(cropbox) %>%
+  ggplot(data = .) +
+    geom_sf(lwd = 0.01, fill = "burlywood2") +
+    theme_classic() +
+    theme(panel.background = element_rect(fill = "lightblue",
+                                          colour = "lightblue",
+                                          size = 0.5, linetype = "solid")) +
+    labs(x = "Longitude",
+         y = "Latitude",
+         title = "Northern Great Barrier Reef")
+```
+
+[gaio]: `r gaio`
+[daio]: `r daio`
+[rt]: `r rt`
+[gs]: `r gs`
+[gp]: `r gp`
+[gda2020]: http://www.ga.gov.au/scientific-topics/positioning-navigation/geodesy/datums-projections/gda2020
+
+## Further readings
+
+* Spatial data in R
+https://www.jessesadler.com/post/gis-with-r-intro/
+https://www.flutterbys.com.au/stats/tut/tut5.4.html
+
+* Simple features data.frame
+https://r-spatial.github.io/sf/articles/sf1.html
+https://www.jessesadler.com/post/simple-feature-objects/
+https://github.com/rstudio/cheatsheets/raw/master/sf.pdf
+
+* Plotting spatial data in R
+https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
+https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html
+
+* About Coordinate Reference Systems
+https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf
