@@ -104,6 +104,7 @@ library(ggspatial)
 library(sf)
 library(dataaimsr)
 library(gisaimsr)
+library(ggrepel)
 ```
 
 We recommend always loading the `sf` package whenever loading `gisaimsr`---this
@@ -159,7 +160,7 @@ gbr_feat %>%
 ```
 
 As we can see the default of `geom_sf` is not necessarily nice. We can play
-with some of the arguments in the function to make the plots more pleasing, 
+with some of the arguments in the function to make the plots more pleasant, 
 including colouring the land based on a particular field (i.e. column), and
 adding some ocean colour to the plot's background
 
@@ -167,32 +168,40 @@ adding some ocean colour to the plot's background
 ggplot(data = gbr_feat) +
   geom_sf(mapping = aes(fill = FEAT_NAME), lwd = 0.01) +
   theme_classic() +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                        colour = "lightblue",
+                                        size = 0.5, linetype = "solid")) +
   labs(x = "Longitude",
        y = "Latitude",
-       title = "The Great Barrier Reef")
+       title = "The Great Barrier Reef",
+       subtitle = "by geographic feature") +
+  scale_fill_brewer(name = "Type", palette = "Spectral")
 ```
 
 We can also overlay different objects from `gisaimsr`, clip the map to a 
 particular area, and add points to our map
 
 ```{r, fig.width = 7, fig.height = 5}
-coords <- data.frame(lat = c(-23, -24), lon = c(150, 151))
+coords <- data.frame(reef = c("Heron reef", "Cockatoo reef"), lat = c(-23.44, -20.70), lon = c(151.92, 150.99))
 ggplot() +
   geom_sf(data = gbr_zoning, mapping = aes(fill = TYPE), colour = NA) +
-  geom_sf(data = gbr_feat, lwd = 0.01, fill = "burlywood2") +
+  geom_sf(data = gbr_feat, lwd = 0.01, fill = "grey90") +
   annotation_scale(location = "bl", width_hint = 0.5) +
   annotation_north_arrow(location = "bl", which_north = "true",
       pad_x = unit(0.25, "in"), pad_y = unit(0.4, "in"),
       style = north_arrow_fancy_orienteering) +
   coord_sf(xlim = c(148, 154.5), ylim = c(-25, -18)) +
   geom_point(data = coords, mapping = aes(x = lon, y = lat)) +
+  geom_label_repel(data = coords, 
+                   mapping = aes(x = lon, y = lat,
+                                 label = reef),
+                   hjust = 0, vjust = 0) +
   theme_classic() +
-  theme(panel.background = element_rect(fill = "lightblue",
-                                        colour = "lightblue",
-                                        size = 0.5, linetype = "solid")) +
   labs(x = "Longitude",
        y = "Latitude",
-       title = "Southern Great Barrier Reef")
+       title = "Southern Great Barrier Reef",
+       subtitle = "by zone") +
+  scale_fill_brewer(name = "Zone", palette = "Spectral")
 ```
 
 The functions `annotation_scale` and `annotation_north_arrow` from the 
@@ -221,7 +230,7 @@ Survey Group) code (e.g. `crs = sf::st_crs(7844)` for the new
 [here](https://spatialreference.org/ref/epsg/?page=1) and
 [here](https://epsg.io/).
 
-Finally, you can also crop a particular dataset for a user-defined region
+One can also crop a particular dataset for a user-defined region
 before plotting the object. This requires some code to first create a bounding
 box on equivalent CRS to the target dataset to be cropped, and then some
 wrangling to fix any original invalid geometries from the original dataset:
@@ -247,6 +256,60 @@ gbr_feat %>%
          title = "Northern Great Barrier Reef")
 ```
 
+To finalise, we also provide visualisation of the remaining datasets available
+in `gisaimsr`:
+
+```{r, fig.width = 5, fig.height = 5}
+ggplot() +
+  geom_sf(data = gbr_bounds, fill = "darkred", colour = NA) +
+  geom_sf(data = gbr_feat, lwd = 0.01, fill = "burlywood2") +
+  annotation_scale(location = "bl", width_hint = 0.5) +
+  annotation_north_arrow(location = "bl", which_north = "true",
+      pad_x = unit(0.25, "in"), pad_y = unit(0.4, "in"),
+      style = north_arrow_fancy_orienteering) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                        colour = "lightblue",
+                                        size = 0.5, linetype = "solid")) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "The Great Barrier Reef",
+       subtitle = "Marine park boundary")
+```
+
+```{r, fig.width = 6, fig.height = 5}
+ggplot() +
+  geom_sf(data = nrm_regions,
+          mapping = aes(fill = NAME), lwd = 0.01) +
+  theme_classic() +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "The Great Barrier Reef",
+       subtitle = "by NRM marine regions") +
+  scale_fill_brewer(name = "Region", palette = "Spectral")
+```
+
+```{r, fig.width = 6, fig.height = 5}
+ggplot() +
+  geom_sf(data = wbodies,
+          mapping = aes(fill = MarineWate), lwd = 0.01) +
+  theme_classic() +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "The Great Barrier Reef",
+       subtitle = "by marine water bodies") +
+  scale_fill_brewer(name = "Type of body", palette = "Spectral")
+```
+
+```{r, fig.width = 5, fig.height = 5}
+ggplot() +
+  geom_sf(data = qld_hydro, lwd = 0.01, colour = "dodgerblue3") +
+  theme_classic() +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "Queensland hydrology map")
+```
+
 [gaio]: `r gaio`
 [daio]: `r daio`
 [rt]: `r rt`
@@ -256,18 +319,26 @@ gbr_feat %>%
 
 ## Further readings
 
-* Spatial data in R
-https://www.jessesadler.com/post/gis-with-r-intro/
-https://www.flutterbys.com.au/stats/tut/tut5.4.html
+* Spatial data in R:
 
-* Simple features data.frame
-https://r-spatial.github.io/sf/articles/sf1.html
-https://www.jessesadler.com/post/simple-feature-objects/
-https://github.com/rstudio/cheatsheets/raw/master/sf.pdf
+    - https://www.jessesadler.com/post/gis-with-r-intro/
 
-* Plotting spatial data in R
-https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
-https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html
+    - https://www.flutterbys.com.au/stats/tut/tut5.4.html
 
-* About Coordinate Reference Systems
-https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf
+* Simple features data.frame:
+
+    - https://r-spatial.github.io/sf/articles/sf1.html
+
+    - https://www.jessesadler.com/post/simple-feature-objects/
+
+    - https://github.com/rstudio/cheatsheets/raw/master/sf.pdf
+
+* Plotting spatial data in R:
+
+    - https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html
+
+    - https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html
+
+* About Coordinate Reference Systems:
+
+    - https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf
