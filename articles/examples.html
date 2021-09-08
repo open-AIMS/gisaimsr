@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -62,8 +64,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/open-aims/gisaimsr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/open-aims/gisaimsr/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -77,14 +79,13 @@
 
       
 
-      </header><script src="examples_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="examples_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="examples_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="examples_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Using gisaimsr data</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/open-aims/gisaimsr/blob/master/vignettes/examples.Rmd"><code>vignettes/examples.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/open-aims/gisaimsr/blob/master/vignettes/examples.Rmd" class="external-link"><code>vignettes/examples.Rmd</code></a></small>
       <div class="hidden name"><code>examples.Rmd</code></div>
 
     </div>
@@ -93,21 +94,21 @@
     
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
-<p><code>gisaimsr</code> was developed to provide scientists with easy access to some key spatial datasets associated with key marine ecosystems in Australia where most of the work conducted by the Australian Institute of Marine Science takes place. If you would like to see more spatial datasets made available through this package, please submit a request via our <a href="https://www.github.com/open-AIMS/gisaimsr/issues/new">issues</a> page on GitHub.</p>
+<a href="#introduction" class="anchor" aria-hidden="true"></a>Introduction</h2>
+<p><code>gisaimsr</code> was developed to provide scientists with easy access to some key spatial datasets associated with key marine ecosystems in Australia where most of the work conducted by the Australian Institute of Marine Science takes place. If you would like to see more spatial datasets made available through this package, please submit a request via our <a href="https://www.github.com/open-AIMS/gisaimsr/issues/new" class="external-link">issues</a> page on GitHub.</p>
 <p>Different from most R packages, this package should be viewed as a data package only. Therefore, the purpose of this vignette is to teach how one can: (<em>i</em>) query which spatial datasets are available and how to access them, and (<em>ii</em>) provide illustrated examples of data exploration and plots.</p>
-<p>Our datasets were originally provided by Geoscience Australia (GA) and the Great Barrier Reef Marine Park Authority (GBRMPA). Please see our <a href="https://open-AIMS.github.io/gisaimsr/index.html">README</a> page for full information regarding data and package licenses.</p>
+<p>Our datasets were originally provided by Geoscience Australia (GA) and the Great Barrier Reef Marine Park Authority (GBRMPA). In September 2021, we transformed all data to the GDA2020 coordinate system. Please see our <a href="https://open-AIMS.github.io/gisaimsr/index.html" class="external-link">README</a> page for full information regarding data and package licenses.</p>
 </div>
 <div id="installing-the-package" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installing-the-package" class="anchor"></a>Installing the package</h2>
-<p>Before moving forward on this page, please refer to our <a href="https://open-AIMS.github.io/gisaimsr/index.html">README</a> page for full information regarding package installation and dependencies.</p>
+<a href="#installing-the-package" class="anchor" aria-hidden="true"></a>Installing the package</h2>
+<p>Before moving forward on this page, please refer to our <a href="https://open-AIMS.github.io/gisaimsr/index.html" class="external-link">README</a> page for full information regarding package installation and dependencies.</p>
 </div>
 <div id="the-datasets" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-datasets" class="anchor"></a>The datasets</h2>
-<p>Our datasets are in <a href="https://cran.r-project.org/package=sf">simple features data.frame</a> format, which is being actively developed and soon is likely to be the main go-to spatial object in R. There is no point in repeating abundant information; if you want an overview of spatial data objects in R, and simple features in particular, please see the <a href="#further-readings">further readings</a> section at the end of this vignette.</p>
-<p>Currently all of our spatial datasets are from Queensland because of AIMS historical focus on the Great Barrier Reef. If you would like to access spatial datasets from other parts of the country (e.g. tropical Western Australia and Northern Territory), please submit a request via our <a href="https://www.github.com/open-AIMS/gisaimsr/issues/new">issues</a> page on GitHub. A list of datasets and their associated full documentation can be found on our <a href="garf">reference</a> page, but briefly we provide datasets on:</p>
+<a href="#the-datasets" class="anchor" aria-hidden="true"></a>The datasets</h2>
+<p>Our datasets are in <a href="https://cran.r-project.org/package=sf" class="external-link">simple features data.frame</a> format, which is being actively developed and soon is likely to be the main go-to spatial object in R. There is no point in repeating abundant information; if you want an overview of spatial data objects in R, and simple features in particular, please see the <a href="#further-readings">further readings</a> section at the end of this vignette.</p>
+<p>Currently all of our spatial datasets are from Queensland because of AIMS historical focus on the Great Barrier Reef. If you would like to access spatial datasets from other parts of the country (e.g. tropical Western Australia and Northern Territory), please submit a request via our <a href="https://www.github.com/open-AIMS/gisaimsr/issues/new" class="external-link">issues</a> page on GitHub. A list of datasets and their associated full documentation can be found on our <a href="garf">reference</a> page, but briefly we provide datasets on:</p>
 <ul>
 <li><p>Great Barrier Reef Marine Park Boundary (object <code>gbr_feat</code>)</p></li>
 <li><p>Great Barrier Reef Features (object <code>gbr_bounds</code>)</p></li>
@@ -116,28 +117,28 @@
 <li><p>Marine Water Bodies within the Great Barrier Reef (object <code>wbodies</code>)</p></li>
 <li><p>Queensland Hydrology data (object <code>qld_hydro</code>)</p></li>
 </ul>
-<p>All datasets are standardised to the Geocentric Datum of Australia (<a href="http://www.geoproject.com.au/gda.faq.html">GDA94</a>). However, this vignette will guide you through some examples about changing the projection of the datasets if needed.</p>
+<p>All datasets are standardised to the Geocentric Datum of Australia (<a href="http://www.geoproject.com.au/gda.faq.html" class="external-link">GDA94</a>). However, this vignette will guide you through some examples about changing the projection of the datasets if needed.</p>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
-<p>Before we explore and plot some data, let’s first load some packages that we are going to need further down the track; most of them can be downloaded using the <code>install.packages</code> function in R. <a href="https://open-AIMS.github.io/gisaimsr/"><code>gisaimsr</code></a> and <a href="https://open-AIMS.github.io/dataaimsr/"><code>dataaimsr</code></a> can be installed using the <a href="https://cran.r-project.org/package=remotes"><code>remotes</code></a> package (see more on our <a href="https://open-AIMS.github.io/gisaimsr/index.html">README</a> page).</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/raster">raster</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial">ggspatial</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/gisaimsr">gisaimsr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/slowkow/ggrepel">ggrepel</a></span><span class="op">)</span></pre></div>
+<a href="#examples" class="anchor" aria-hidden="true"></a>Examples</h2>
+<p>Before we explore and plot some data, let’s first load some packages that we are going to need further down the track; most of them can be downloaded using the <code>install.packages</code> function in R. <a href="https://open-AIMS.github.io/gisaimsr/" class="external-link"><code>gisaimsr</code></a> and <a href="https://ropensci.github.io/dataaimsr/" class="external-link"><code>dataaimsr</code></a> can be installed using the <a href="https://cran.r-project.org/package=remotes" class="external-link"><code>remotes</code></a> package (see more on our <a href="https://open-AIMS.github.io/gisaimsr/index.html" class="external-link">README</a> page).</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/raster" class="external-link">raster</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial/" class="external-link">ggspatial</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropensci.github.io/dataaimsr" class="external-link">dataaimsr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/gisaimsr" class="external-link">gisaimsr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/slowkow/ggrepel" class="external-link">ggrepel</a></span><span class="op">)</span></code></pre></div>
 <p>We recommend always loading the <code>sf</code> package whenever loading <code>gisaimsr</code>—this will facilitate the summary view of the datasets. We look at what the <code>gbr_feat</code> object comprises:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">gbr_feat</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gbr_feat</span></code></pre></div>
 <pre><code>## Simple feature collection with 5363 features and 20 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 138.0012 ymin: -29.17855 xmax: 153.5516 ymax: -10.34855
-## geographic CRS: GDA94
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 138.0012 ymin: -29.17855 xmax: 153.5516 ymax: -10.34855
+## Geodetic CRS:  GDA2020
 ## First 10 features:
 ##    OBJECTID SORT_GBR_I LABEL_ID SUB_NO           CODE   UNIQUE_ID FEATURE_C
 ## 1      2282      20039   20-039    100 20-039-100-106 20039100106       106
@@ -195,22 +196,23 @@
 ## 9  MULTIPOLYGON (((150.2114 -2...
 ## 10 MULTIPOLYGON (((145.2375 -1...</code></pre>
 <p>A two-part summary was printed to the screen. The top part summarises the features (rows) X fields (columns) of the spatial dataset, its geographical boundaries and projection. The second part displays the first 10 rows of the dataset. These fields contain all of the original info on the dataset, and the last column <code>geometry</code> contains the actual spatial information of that particular feature, e.g.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="va">gbr_feat</span><span class="op">$</span><span class="va">geometry</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></pre></div>
-<pre><code>## Geometry set for 1 feature 
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 148.9059 ymin: -20.25925 xmax: 148.907 ymax: -20.25791
-## geographic CRS: GDA94</code></pre>
-<pre><code>## MULTIPOLYGON (((148.9069 -20.2591, 148.9069 -20...</code></pre>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gbr_feat</span><span class="op">[</span><span class="fl">1</span>, <span class="st">"geometry"</span><span class="op">]</span></code></pre></div>
+<pre><code>## Simple feature collection with 1 feature and 0 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 148.9059 ymin: -20.25925 xmax: 148.907 ymax: -20.25791
+## Geodetic CRS:  GDA2020
+##                         geometry
+## 1 MULTIPOLYGON (((148.9069 -2...</code></pre>
 <p>The nice thing about this type of format is that it can be subset in whichever way we want, as we would do for a regular data.frame. For instance, we can isolate the first occurrence of the dataset</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="va">gbr_feat</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gbr_feat</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></code></pre></div>
 <pre><code>## Simple feature collection with 1 feature and 20 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 148.9059 ymin: -20.25925 xmax: 148.907 ymax: -20.25791
-## geographic CRS: GDA94
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 148.9059 ymin: -20.25925 xmax: 148.907 ymax: -20.25791
+## Geodetic CRS:  GDA2020
 ##   OBJECTID SORT_GBR_I LABEL_ID SUB_NO           CODE   UNIQUE_ID FEATURE_C
 ## 1     2282      20039   20-039    100 20-039-100-106 20039100106       106
 ##    GBR_NAME FEAT_NAME  QLD_NAME X_LABEL GBR_ID         LOC_NAME_S
@@ -222,14 +224,14 @@
 ##                         geometry
 ## 1 MULTIPOLYGON (((148.9069 -2...</code></pre>
 <p>In a similar fashion, we can subset the data based on a particular field value</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">GBR_NAME</span> <span class="op">==</span> <span class="st">"Forrester Reef"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gbr_feat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">GBR_NAME</span> <span class="op">==</span> <span class="st">"Forrester Reef"</span><span class="op">)</span></code></pre></div>
 <pre><code>## Simple feature collection with 1 feature and 20 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 145.4744 ymin: -15.18606 xmax: 145.5166 ymax: -15.14692
-## geographic CRS: GDA94
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 145.4744 ymin: -15.18606 xmax: 145.5166 ymax: -15.14692
+## Geodetic CRS:  GDA2020
 ##   OBJECTID SORT_GBR_I LABEL_ID SUB_NO           CODE   UNIQUE_ID FEATURE_C
 ## 1     1408      15009   15-009    100 15-009-100-104 15009100104       104
 ##         GBR_NAME FEAT_NAME       QLD_NAME X_LABEL GBR_ID
@@ -241,11 +243,11 @@
 ##                         geometry
 ## 1 MULTIPOLYGON (((145.5141 -1...</code></pre>
 <p>which is extremely handy when we want to plot particular sections of the dataset</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
-  <span class="va">data.frame</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/select.html">select</a></span><span class="op">(</span><span class="va">FEAT_NAME</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">distinct</span><span class="op">(</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gbr_feat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">data.frame</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">FEAT_NAME</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>##   FEAT_NAME
 ## 1      Rock
 ## 2      Reef
@@ -253,166 +255,166 @@
 ## 4       Cay
 ## 5      Sand
 ## 6  Mainland</code></pre>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">FEAT_NAME</span> <span class="op">!=</span> <span class="st">"Mainland"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gbr_feat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">FEAT_NAME</span> <span class="op">!=</span> <span class="st">"Mainland"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-8-1.png" width="480"></p>
 <p>As we can see the default of <code>geom_sf</code> is not necessarily nice. We can play with some of the arguments in the function to make the plots more pleasant, including colouring the land based on a particular field (i.e. column), and adding some ocean colour to the plot’s background</p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">FEAT_NAME</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">FEAT_NAME</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
                                         colour <span class="op">=</span> <span class="st">"lightblue"</span>,
                                         size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span>,
        title <span class="op">=</span> <span class="st">"The Great Barrier Reef"</span>,
        subtitle <span class="op">=</span> <span class="st">"by geographic feature"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_brewer</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Type"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_brewer</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Type"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-9-1.png" width="480"></p>
 <p>We can also overlay different objects from <code>gisaimsr</code>, clip the map to a particular area, and add points to our map</p>
-<div class="sourceCode" id="cb15"><pre class="downlit">
-<span class="va">coords</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>reef <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Heron reef"</span>, <span class="st">"Cockatoo reef"</span><span class="op">)</span>, lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">23.44</span>, <span class="op">-</span><span class="fl">20.70</span><span class="op">)</span>, lon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">151.92</span>, <span class="fl">150.99</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_zoning</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">TYPE</span><span class="op">)</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span>, lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html">annotation_scale</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, width_hint <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html">annotation_north_arrow</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, which_north <span class="op">=</span> <span class="st">"true"</span>,
-      pad_x <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0.25</span>, <span class="st">"in"</span><span class="op">)</span>, pad_y <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0.4</span>, <span class="st">"in"</span><span class="op">)</span>,
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">coords</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>reef <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Heron reef"</span>, <span class="st">"Cockatoo reef"</span><span class="op">)</span>, lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">23.44</span>, <span class="op">-</span><span class="fl">20.70</span><span class="op">)</span>, lon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">151.92</span>, <span class="fl">150.99</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_zoning</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">TYPE</span><span class="op">)</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span>, lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">annotation_scale</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, width_hint <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">annotation_north_arrow</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, which_north <span class="op">=</span> <span class="st">"true"</span>,
+      pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="st">"in"</span><span class="op">)</span>, pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="st">"in"</span><span class="op">)</span>,
       style <span class="op">=</span> <span class="va">north_arrow_fancy_orienteering</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">148</span>, <span class="fl">154.5</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">25</span>, <span class="op">-</span><span class="fl">18</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">coords</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_label_repel</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coords</span>, 
-                   mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">148</span>, <span class="fl">154.5</span><span class="op">)</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">25</span>, <span class="op">-</span><span class="fl">18</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coords</span>, mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html" class="external-link">geom_label_repel</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">coords</span>, 
+                   mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span>,
                                  label <span class="op">=</span> <span class="va">reef</span><span class="op">)</span>,
                    hjust <span class="op">=</span> <span class="fl">0</span>, vjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span>,
        title <span class="op">=</span> <span class="st">"Southern Great Barrier Reef"</span>,
        subtitle <span class="op">=</span> <span class="st">"by zone"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_brewer</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Zone"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_brewer</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Zone"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
-<p>The functions <code>annotation_scale</code> and <code>annotation_north_arrow</code> from the <a href="https://cran.r-project.org/package=ggspatial"><code>ggspatial</code></a> package allow the addition of scale bars and orientation. <code>coord_sf</code> from <a href="https://cran.r-project.org/package=ggplot2"><code>ggplot2</code></a> allows for the delimitation of the plot area. It also allows one to change the projection of the map by changing the Coordinate Reference System (CRS)</p>
-<div class="sourceCode" id="cb16"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="st">"+proj=moll"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
+<p>The functions <code>annotation_scale</code> and <code>annotation_north_arrow</code> from the <a href="https://cran.r-project.org/package=ggspatial" class="external-link"><code>ggspatial</code></a> package allow the addition of scale bars and orientation. <code>coord_sf</code> from <a href="https://cran.r-project.org/package=ggplot2" class="external-link"><code>ggplot2</code></a> allows for the delimitation of the plot area. It also allows one to change the projection of the map by changing the Coordinate Reference System (CRS)</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="st">"+proj=moll"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
                                         colour <span class="op">=</span> <span class="st">"lightblue"</span>,
                                         size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span>,
        title <span class="op">=</span> <span class="st">"The Great Barrier Reef"</span>,
-       subtitle <span class="op">=</span> <span class="st">"World Mollweide projection"</span><span class="op">)</span></pre></div>
+       subtitle <span class="op">=</span> <span class="st">"World Mollweide projection"</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-11-1.png" width="480"></p>
-<p>The argument <code>crs</code> in <code>coord_sf</code> could have been an EPSG (European Petroleum Survey Group) code (e.g. <code>crs = sf::st_crs(7844)</code> for the new <a href="http://www.ga.gov.au/scientific-topics/positioning-navigation/geodesy/datums-projections/gda2020">GDA2020</a>). One can search for different projections and codes <a href="https://spatialreference.org/ref/epsg/?page=1">here</a> and <a href="https://epsg.io/">here</a>.</p>
+<p>The argument <code>crs</code> in <code>coord_sf</code> could have been an EPSG (European Petroleum Survey Group) code (e.g. <code>crs = sf::st_crs(7844)</code> for the new <a href="http://www.ga.gov.au/scientific-topics/positioning-navigation/geodesy/datums-projections/gda2020" class="external-link">GDA2020</a>). One can search for different projections and codes <a href="https://spatialreference.org/ref/epsg/?page=1" class="external-link">here</a> and <a href="https://epsg.io/" class="external-link">here</a>.</p>
 <p>One can also crop a particular dataset for a user-defined region before plotting the object. This requires some code to first create a bounding box on equivalent CRS to the target dataset to be cropped, and then some wrangling to fix any original invalid geometries from the original dataset:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit">
-<span class="co"># first define box</span>
-<span class="va">cropbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/extent.html">extent</a></span><span class="op">(</span><span class="fl">140</span>, <span class="fl">146</span>, <span class="op">-</span><span class="fl">15</span>, <span class="op">-</span><span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/coerce-methods.html">as</a></span><span class="op">(</span><span class="st">"SpatialPolygons"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="va">st_as_sf</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_set_crs</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">gbr_feat</span><span class="op">)</span><span class="op">)</span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># first define box</span>
+<span class="va">cropbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/extent.html" class="external-link">extent</a></span><span class="op">(</span><span class="fl">140</span>, <span class="fl">146</span>, <span class="op">-</span><span class="fl">15</span>, <span class="op">-</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/coerce-methods.html" class="external-link">as</a></span><span class="op">(</span><span class="st">"SpatialPolygons"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">st_as_sf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_set_crs</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">gbr_feat</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">gbr_feat</span> <span class="op">%&gt;%</span>
-  <span class="va">st_make_valid</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_binary_ops.html">st_intersection</a></span><span class="op">(</span><span class="va">cropbox</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
+<span class="va">gbr_feat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">st_make_valid</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_binary_ops.html" class="external-link">st_intersection</a></span><span class="op">(</span><span class="va">cropbox</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
                                           colour <span class="op">=</span> <span class="st">"lightblue"</span>,
                                           size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
          y <span class="op">=</span> <span class="st">"Latitude"</span>,
-         title <span class="op">=</span> <span class="st">"Northern Great Barrier Reef"</span><span class="op">)</span></pre></div>
+         title <span class="op">=</span> <span class="st">"Northern Great Barrier Reef"</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-12-1.png" width="480"></p>
 <p>To finalise, we also provide visualisation of the remaining datasets available in <code>gisaimsr</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_bounds</span>, fill <span class="op">=</span> <span class="st">"darkred"</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span>, lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html">annotation_scale</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, width_hint <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html">annotation_north_arrow</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, which_north <span class="op">=</span> <span class="st">"true"</span>,
-      pad_x <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0.25</span>, <span class="st">"in"</span><span class="op">)</span>, pad_y <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0.4</span>, <span class="st">"in"</span><span class="op">)</span>,
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_bounds</span>, fill <span class="op">=</span> <span class="st">"darkred"</span>, colour <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gbr_feat</span>, lwd <span class="op">=</span> <span class="fl">0.01</span>, fill <span class="op">=</span> <span class="st">"burlywood2"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">annotation_scale</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, width_hint <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">annotation_north_arrow</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"bl"</span>, which_north <span class="op">=</span> <span class="st">"true"</span>,
+      pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="st">"in"</span><span class="op">)</span>, pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="st">"in"</span><span class="op">)</span>,
       style <span class="op">=</span> <span class="va">north_arrow_fancy_orienteering</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"lightblue"</span>,
                                         colour <span class="op">=</span> <span class="st">"lightblue"</span>,
                                         size <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"solid"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span>,
        title <span class="op">=</span> <span class="st">"The Great Barrier Reef"</span>,
-       subtitle <span class="op">=</span> <span class="st">"Marine park boundary"</span><span class="op">)</span></pre></div>
+       subtitle <span class="op">=</span> <span class="st">"Marine park boundary"</span><span class="op">)</span></code></pre></div>
 <pre><code>## Scale on map varies by more than 10%, scale bar may be inaccurate</code></pre>
 <p><img src="examples_files/figure-html/unnamed-chunk-13-1.png" width="480"></p>
-<div class="sourceCode" id="cb20"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">nrm_regions</span>,
-          mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">nrm_regions</span>,
+          mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span>,
        title <span class="op">=</span> <span class="st">"The Great Barrier Reef"</span>,
        subtitle <span class="op">=</span> <span class="st">"by NRM marine regions"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_brewer</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Region"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_brewer</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Region"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-14-1.png" width="576"></p>
-<div class="sourceCode" id="cb21"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wbodies</span>,
-          mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">MarineWate</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wbodies</span>,
+          mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">MarineWate</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span>,
        title <span class="op">=</span> <span class="st">"The Great Barrier Reef"</span>,
        subtitle <span class="op">=</span> <span class="st">"by marine water bodies"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_brewer</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Type of body"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_brewer</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Type of body"</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-15-1.png" width="576"></p>
-<div class="sourceCode" id="cb22"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">qld_hydro</span>, lwd <span class="op">=</span> <span class="fl">0.01</span>, colour <span class="op">=</span> <span class="st">"dodgerblue3"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">qld_hydro</span>, lwd <span class="op">=</span> <span class="fl">0.01</span>, colour <span class="op">=</span> <span class="st">"dodgerblue3"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span>,
-       title <span class="op">=</span> <span class="st">"Queensland hydrology map"</span><span class="op">)</span></pre></div>
+       title <span class="op">=</span> <span class="st">"Queensland hydrology map"</span><span class="op">)</span></code></pre></div>
 <p><img src="examples_files/figure-html/unnamed-chunk-16-1.png" width="480"></p>
 </div>
 <div id="further-readings" class="section level2">
 <h2 class="hasAnchor">
-<a href="#further-readings" class="anchor"></a>Further readings</h2>
+<a href="#further-readings" class="anchor" aria-hidden="true"></a>Further readings</h2>
 <ul>
 <li>
 <p>Spatial data in R:</p>
 <ul>
-<li><p><a href="https://www.jessesadler.com/post/gis-with-r-intro/" class="uri">https://www.jessesadler.com/post/gis-with-r-intro/</a></p></li>
-<li><p><a href="https://www.flutterbys.com.au/stats/tut/tut5.4.html" class="uri">https://www.flutterbys.com.au/stats/tut/tut5.4.html</a></p></li>
+<li><p><a href="https://www.jessesadler.com/post/gis-with-r-intro/" class="external-link uri">https://www.jessesadler.com/post/gis-with-r-intro/</a></p></li>
+<li><p><a href="https://www.flutterbys.com.au/stats/tut/tut5.4.html" class="external-link uri">https://www.flutterbys.com.au/stats/tut/tut5.4.html</a></p></li>
 </ul>
 </li>
 <li>
 <p>Simple features data.frame:</p>
 <ul>
-<li><p><a href="https://r-spatial.github.io/sf/articles/sf1.html" class="uri">https://r-spatial.github.io/sf/articles/sf1.html</a></p></li>
-<li><p><a href="https://www.jessesadler.com/post/simple-feature-objects/" class="uri">https://www.jessesadler.com/post/simple-feature-objects/</a></p></li>
-<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/sf.pdf" class="uri">https://github.com/rstudio/cheatsheets/raw/master/sf.pdf</a></p></li>
+<li><p><a href="https://r-spatial.github.io/sf/articles/sf1.html" class="external-link uri">https://r-spatial.github.io/sf/articles/sf1.html</a></p></li>
+<li><p><a href="https://www.jessesadler.com/post/simple-feature-objects/" class="external-link uri">https://www.jessesadler.com/post/simple-feature-objects/</a></p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/sf.pdf" class="external-link uri">https://github.com/rstudio/cheatsheets/raw/master/sf.pdf</a></p></li>
 </ul>
 </li>
 <li>
 <p>Plotting spatial data in R:</p>
 <ul>
-<li><p><a href="https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html" class="uri">https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html</a></p></li>
-<li><p><a href="https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html" class="uri">https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html</a></p></li>
+<li><p><a href="https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html" class="external-link uri">https://www.r-spatial.org/r/2018/10/25/ggplot2-sf.html</a></p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html" class="external-link uri">https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html</a></p></li>
 </ul>
 </li>
 <li>
 <p>About Coordinate Reference Systems:</p>
 <ul>
-<li><a href="https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf" class="uri">https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf</a></li>
+<li><a href="https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf" class="external-link uri">https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf</a></li>
 </ul>
 </li>
 </ul>
@@ -430,11 +432,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Diego Barneche, Murray Logan.</p>
+  <p></p>
+<p>Developed by Diego Barneche, Murray Logan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -442,6 +446,8 @@
 
   
 
+
+  
 
   </body>
 </html>
