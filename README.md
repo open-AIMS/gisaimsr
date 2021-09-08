@@ -25,7 +25,8 @@ Overview
 `gisaimsr` is a data package that provides the user with easy access to
 GIS data (in [Simple Features
 data.frame](https://cran.r-project.org/package=sf) format) that are
-focused on the Great Barrier Reef.
+focused on the Great Barrier Reef. All datasets are based on the GDA2020
+coordinate system.
 
 Available Datasets
 ------------------
