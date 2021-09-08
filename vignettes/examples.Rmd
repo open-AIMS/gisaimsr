@@ -126,7 +126,7 @@ last column `geometry` contains the actual spatial information of that
 particular feature, e.g.
 
 ```{r}
-gbr_feat$geometry[1, ]
+gbr_feat[1, "geometry"]
 ```
 
 The nice thing about this type of format is that it can be subset in whichever 
