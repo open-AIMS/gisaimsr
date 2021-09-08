@@ -28,6 +28,7 @@ Derived from the Amalgamated Great Barrier Reef (AGBR) Section that
 replaces all previously existing  sections.The AGBR was proclaimed
 under subsection 31 (1) of the Act in 2003 (Gazette No S119) dated 21
 April 2004.
+All data is based on the GDA2020 coordinate system.
 }
 \details{
 For full Metadata see the original

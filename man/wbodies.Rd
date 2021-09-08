@@ -35,6 +35,7 @@ body relative distance from Research Publication no. 89); and Offshsore
 (AIMS description of relative distance from Research Publication
 no. 89) Coral Sea taken from DEWHA definition of current Coral Sea
 Conservation Park.
+All data is based on the GDA2020 coordinate system.
 }
 \details{
 Data kindly provided by:

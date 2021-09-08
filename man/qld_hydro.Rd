@@ -34,7 +34,7 @@ GEODATA TOPO 250K Series 3 is a vector representation of the major
 topographic features appearing on the 1:250,000 scale NATMAPs supplied
 in Shape file format and is designed for use in a range of commercial
 GIS software. Data is arranged within specific themes. All data is
-based on the GDA94 coordinate system.
+based on the GDA2020 coordinate system.
 }
 \details{
 For full Metadata see the original

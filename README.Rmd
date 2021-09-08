@@ -75,7 +75,7 @@ l14 <- paste0(cc, "by-sa/3.0")
 
 `gisaimsr` is a data package that provides the user with easy access to GIS 
 data (in [Simple Features data.frame][l1] format) that are focused on the 
-Great Barrier Reef.
+Great Barrier Reef. All datasets are based on the GDA2020 coordinate system.
 
 ## Available Datasets
 

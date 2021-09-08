@@ -63,6 +63,7 @@ and understanding of the Marine Park are also acknowledged in this Zoning Plan, 
 for the management of research in the Marine Park, including a system of Scientific Research Zones
 to facilitate research around scientific research stations.(Extract from "Preface A, Introduction;
 Great Barrier Reef Marine Park Zoning Plan 2003).
+All data is based on the GDA2020 coordinate system.
 }
 \details{
 For full Metadata see the original

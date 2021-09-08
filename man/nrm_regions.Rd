@@ -26,6 +26,7 @@ terrestrial Natural Resource Management Regions. It will be used as a
 planning tool when assessing water quality issues adjacent to the
 Natural Resource Management Regions, within or adjacent to the Great
 Barrier Reef Marine Park.
+All data is based on the GDA2020 coordinate system.
 }
 \details{
 A marine extension of the Natural Resource Management Regions, covering

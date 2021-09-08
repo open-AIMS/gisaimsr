@@ -5,6 +5,7 @@
 #' mainland). - Major coral cay features - Major and other coral reef
 #' structures (as defined by the reef shoal edge) and tidal, drying or
 #' emergent reef areas within the Great Barrier Reef World Heritage Area.
+#' All data is based on the GDA2020 coordinate system.
 #' 
 #' For full Metadata see the original
 #' \href{https://tinyurl.com/y9mltz6n}{GBRMPA Geoportal}
@@ -74,6 +75,7 @@ NULL
 #' (AIMS description of relative distance from Research Publication
 #' no. 89) Coral Sea taken from DEWHA definition of current Coral Sea
 #' Conservation Park.
+#' All data is based on the GDA2020 coordinate system.
 #' 
 #' Data kindly provided by:
 #' Great Barrier Reef Marine Park Authority
@@ -130,6 +132,7 @@ NULL
 #' replaces all previously existing  sections.The AGBR was proclaimed
 #' under subsection 31 (1) of the Act in 2003 (Gazette No S119) dated 21
 #' April 2004.
+#' All data is based on the GDA2020 coordinate system.
 #' 
 #' For full Metadata see the original
 #' \href{https://tinyurl.com/y93w8euw}{GBRMPA Geoportal}
@@ -209,6 +212,7 @@ NULL
 #' for the management of research in the Marine Park, including a system of Scientific Research Zones 
 #' to facilitate research around scientific research stations.(Extract from "Preface A, Introduction; 
 #' Great Barrier Reef Marine Park Zoning Plan 2003).
+#' All data is based on the GDA2020 coordinate system.
 #' 
 #' For full Metadata see the original
 #' \href{https://tinyurl.com/y7l3ysu6}{GBRMPA Geoportal}
@@ -281,6 +285,7 @@ NULL
 #' planning tool when assessing water quality issues adjacent to the
 #' Natural Resource Management Regions, within or adjacent to the Great
 #' Barrier Reef Marine Park.
+#' All data is based on the GDA2020 coordinate system.
 #' 
 #' A marine extension of the Natural Resource Management Regions, covering 
 #' an area from the Queensland mainland at low water, excluding all islands 
@@ -341,7 +346,7 @@ NULL
 #' topographic features appearing on the 1:250,000 scale NATMAPs supplied 
 #' in Shape file format and is designed for use in a range of commercial 
 #' GIS software. Data is arranged within specific themes. All data is 
-#' based on the GDA94 coordinate system.
+#' based on the GDA2020 coordinate system.
 #' 
 #' For full Metadata see the original
 #' Geoscience Australia Data Portal

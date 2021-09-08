@@ -41,7 +41,8 @@ package only. Therefore, the purpose of this vignette is to teach how one can:
 (*ii*) provide illustrated examples of data exploration and plots.
 
 Our datasets were originally provided by Geoscience Australia (GA) and the 
-Great Barrier Reef Marine Park Authority (GBRMPA). Please see our 
+Great Barrier Reef Marine Park Authority (GBRMPA). In September 2021, we
+transformed all data to the GDA2020 coordinate system. Please see our 
 [README][gard] page for full information regarding data and package licenses.
 
 [gard]: `r gard`

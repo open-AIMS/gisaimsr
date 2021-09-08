@@ -37,6 +37,7 @@ World Heritage area (such as islands, rocks and the Queensland
 mainland). - Major coral cay features - Major and other coral reef
 structures (as defined by the reef shoal edge) and tidal, drying or
 emergent reef areas within the Great Barrier Reef World Heritage Area.
+All data is based on the GDA2020 coordinate system.
 }
 \details{
 For full Metadata see the original
