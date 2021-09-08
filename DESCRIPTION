@@ -17,8 +17,8 @@ Description: Assortment of GBR GIS Files
 Depends:
     R (>= 3.6.0)
 Imports:
-  sf,
-	dataaimsr
+    sf,
+    dataaimsr
 Suggests:
     knitr,
     rmarkdown,
