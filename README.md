@@ -58,12 +58,12 @@ from GitHub using the following command:
 
 This command will install the dependencies:
 [`sf`](https://cran.r-project.org/package=sf) and
-[`dataaimsr`](https://open-AIMS.github.io/dataaimsr/).
+[`dataaimsr`](https://ropensci.github.io/dataaimsr/).
 
 Notice that the dependency `dataaimsr` can also be installed using
 `remotes`:
 
-    remotes::install_github("https://github.com/open-AIMS/dataaimsr")
+    remotes::install_github("https://github.com/ropensci/dataaimsr")
 
 Usage
 -----
