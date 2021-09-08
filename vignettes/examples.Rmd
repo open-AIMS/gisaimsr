@@ -11,14 +11,16 @@ vignette: >
 # links
 oagb <- "https://www.github.com/open-AIMS/"
 oaio <- "https://open-AIMS.github.io/"
+rgh <- "https://www.github.com/ropensci/"
+rio <- "https://ropensci.github.io/"
 gagb <- paste0(oagb, "gisaimsr/")
 gais <- paste0(gagb, "issues/new")
 gaio <- paste0(oaio, "gisaimsr/")
 gard <- paste0(gaio, "index.html")
 garf <- paste0(gaio, "reference/index.html")
 
-dagb <- paste0(oagb, "dataaimsr/")
-daio <- paste0(oaio, "dataaimsr/")
+dagb <- paste0(rgh, "dataaimsr/")
+daio <- paste0(rio, "dataaimsr/")
 
 cranpkgs <- "https://cran.r-project.org/package="
 sf <- paste0(cranpkgs, "sf")

@@ -27,7 +27,7 @@ Suggests:
     ggspatial,
     raster,
     ggrepel
-Remotes: open-aims/dataaimsr
+Remotes: ropensci/dataaimsr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

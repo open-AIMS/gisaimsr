@@ -56,6 +56,7 @@ b9 <- paste0(oa, "issues/new")
 ```{r echo = FALSE}
 # links
 gbio <- "https://open-AIMS.github.io/"
+rbio <- "https://ropensci.github.io/"
 pg <- paste0(gbio, "gisaimsr/")
 rp <- "https://cran.r-project.org/package="
 cc <- "http://creativecommons.org/licenses/"
@@ -64,7 +65,7 @@ l1 <- paste0(rp, "sf")
 l2 <- paste0(cc1, "4.0/legalcode")
 l3 <- paste0(pg, "reference/index.html")
 l4 <- paste0(rp, "remotes")
-l5 <- paste0(gbio, "dataaimsr/")
+l5 <- paste0(rbio, "dataaimsr/")
 l6 <- paste0(pg, "articles/examples.html")
 l10 <- paste0(rp, "ggmap")
 l12 <- paste0(cc1, "3.0")
@@ -111,7 +112,7 @@ This command will install the dependencies: [`sf`][l1] and [`dataaimsr`][l5].
 Notice that the dependency `dataaimsr` can also be installed using `remotes`:
 
 ```{r, eval = FALSE}
-remotes::install_github("https://github.com/open-AIMS/dataaimsr")
+remotes::install_github("https://github.com/ropensci/dataaimsr")
 ```
 
 [l4]: `r l4`
