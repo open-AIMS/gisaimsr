@@ -72,9 +72,9 @@ Australia and Northern Territory), please submit a request via our
 documentation can be found on our [reference](garf) page, but briefly we 
 provide datasets on:
 
-* Great Barrier Reef Marine Park Boundary (object `gbr_feat`)
+* Great Barrier Reef Marine Park Boundary (object `gbr_bounds`)
 
-* Great Barrier Reef Features (object `gbr_bounds`)
+* Great Barrier Reef Features (object `gbr_feat`)
 
 * Great Barrier Reef Marine Park Zoning (object `gbr_zoning`)
 
